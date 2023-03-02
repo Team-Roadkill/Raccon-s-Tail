@@ -9,6 +9,9 @@ TagManager:
   - Danger
   - Timer
   - Dialog
+  - DataPersistanceManager
+  - LevelManager
+  - UIobj
   layers:
   - Default
   - TransparentFX

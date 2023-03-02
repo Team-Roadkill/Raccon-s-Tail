@@ -2,6 +2,7 @@
 /// Creator : Chris Johnson
 /// Date Created : 06/02/2023
 /// Purpose : 
+/// improvements : traps should inherit from a general trap class
 /////////////////////////////////////////////////////////
 using System.Collections;
 using System.Collections.Generic;

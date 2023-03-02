@@ -15,7 +15,6 @@ using UnityEngine;
 [CreateAssetMenu]
 public class InventorySO : ScriptableObject
 {
-    public List<string> sCollectablesIDs;
-    public int iCoins;
+    public List<string> sCollectablesIDs; //list of picked up collectable stored as their ID's
 
 }
