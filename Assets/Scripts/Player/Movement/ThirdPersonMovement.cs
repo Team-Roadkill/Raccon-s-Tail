@@ -31,7 +31,7 @@ public class ThirdPersonMovement : MonoBehaviour
         float fVertical = Input.GetAxisRaw("Vertical"); //vertical input
         Vector3 v3Direction = new Vector3(fHorizontal, 0, fVertical).normalized; //get mouse dir
 
-        if (v3Direction.magnitude >= 0.1f) //if the angle is greater than 
+        if (v3Direction.magnitude >= 0.01f) //if the angle is greater than 
         {
             float fTargetAngle = Mathf.Atan2(v3Direction.x, v3Direction.z) * Mathf.Rad2Deg + tCamera.eulerAngles.y; //calculate the angle to target
             float fAngle = Mathf.SmoothDampAngle(transform.eulerAngles.y, fTargetAngle, ref fTurnSmoothVelocity, fTurnSmoothTime); //get a smooth to the movement

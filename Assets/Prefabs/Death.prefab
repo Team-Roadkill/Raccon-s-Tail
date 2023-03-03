@@ -12,11 +12,10 @@ GameObject:
   - component: {fileID: 7124492879554410853}
   - component: {fileID: 7124492879554410854}
   - component: {fileID: 7124492879554410855}
-  - component: {fileID: 7124492879554410856}
   - component: {fileID: 7124492879554410857}
   m_Layer: 0
   m_Name: Death
-  m_TagString: Untagged
+  m_TagString: Danger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -99,18 +98,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 5, y: 5, z: 5}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &7124492879554410856
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7124492879554410858}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a118c51c23359644893c49363186d9a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!54 &7124492879554410857
 Rigidbody:
   m_ObjectHideFlags: 0

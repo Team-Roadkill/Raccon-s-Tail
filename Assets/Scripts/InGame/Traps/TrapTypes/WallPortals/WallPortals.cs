@@ -7,7 +7,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WallPortals : Trap
+public class WallPortals : MonoBehaviour
 {
 
     [SerializeField] GameObject goPositionOne;

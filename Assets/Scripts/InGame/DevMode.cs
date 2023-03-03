@@ -10,6 +10,12 @@ using UnityEngine;
 public class DevMode : MonoBehaviour
 {
     [SerializeField] GameObject DevMenu; //dev menu ref
+    DataPersistenceManager dpmDataPersistanceManager;
+
+    private void Start()
+    {
+         dpmDataPersistanceManager = GameObject.FindGameObjectWithTag("DataPersistanceManager").GetComponent<DataPersistenceManager>();
+    }
 
     // Update is called once per frame
     void Update()
@@ -24,5 +30,17 @@ public class DevMode : MonoBehaviour
             DevMenu.SetActive(false); //hide dev menu
             Cursor.lockState = CursorLockMode.Locked;
         }
+
+        if (Input.GetKey(KeyCode.P))
+        {
+            dpmDataPersistanceManager.SaveGame();
+            SceneLoader.Load(SceneLoader.Scene.DenScene);
+        }
+
+        if (Input.GetKey(KeyCode.L))
+        {
+            dpmDataPersistanceManager.LoadGame();
+        }
+
     }
 }

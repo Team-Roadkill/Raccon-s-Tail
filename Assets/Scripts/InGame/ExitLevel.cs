@@ -1,7 +1,7 @@
 /////////////////////////////////////////////////////////
 /// Creator : Chris Johnson
 /// Date Created : 02/03/2023
-/// Purpose : hold functions needed for a successful and failed run
+/// Purpose : functions for death/run over UI
 /////////////////////////////////////////////////////////
 using System.Collections;
 using System.Collections.Generic;
