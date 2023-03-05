@@ -12,6 +12,7 @@ TagManager:
   - DataPersistanceManager
   - LevelManager
   - UIobj
+  - Dest
   layers:
   - Default
   - TransparentFX

@@ -20,8 +20,8 @@ public class PlayerMovement : MonoBehaviour
     bool bIsGrounded; //store if the player is on the ground
     public float fGroundDistance = 1.3f; // distance to check to the ground
 
-    Vector3[] v3RaycastPositions = new Vector3[5]; //rays cast below player
-    [SerializeField] float fRaySpacing = 0.25f; //ray spacing
+    //Vector3[] v3RaycastPositions = new Vector3[5]; //rays cast below player
+    //[SerializeField] float fRaySpacing = 0.25f; //ray spacing
 
 
     void Start()
@@ -29,11 +29,11 @@ public class PlayerMovement : MonoBehaviour
         cmVirtualCamera = FindObjectOfType<CinemachineVirtualCamera>(); //cinemachine camera
         PlayerAnimationRef = gameObject.GetComponent<PlayerAnimation>(); //get player animation script
 
-        v3RaycastPositions[0] = transform.position;
-        v3RaycastPositions[1] = transform.position + (Vector3.left * fRaySpacing);
-        v3RaycastPositions[2] = transform.position + (Vector3.right * fRaySpacing);
-        v3RaycastPositions[3] = transform.position + (Vector3.forward * fRaySpacing);
-        v3RaycastPositions[4] = transform.position + (Vector3.back * fRaySpacing);
+        //v3RaycastPositions[0] = transform.position;
+        //v3RaycastPositions[1] = transform.position + (Vector3.left * fRaySpacing);
+        //v3RaycastPositions[2] = transform.position + (Vector3.right * fRaySpacing);
+        //v3RaycastPositions[3] = transform.position + (Vector3.forward * fRaySpacing);
+        //v3RaycastPositions[4] = transform.position + (Vector3.back * fRaySpacing);
     }
 
     void Update()
@@ -67,14 +67,14 @@ public class PlayerMovement : MonoBehaviour
         
         transform.LookAt(transform.position + v3InputDirection); // rotate the player
 
-        foreach (Vector3 pos in v3RaycastPositions) //for each ray cast pos
-        {
-            if (Physics.Raycast(pos, Vector3.down, fGroundDistance)) //cast ray
-            {
-                bIsGrounded = true; //ground is near 
-            }
-        }
-        //bIsGrounded = Physics.Raycast(transform.position, Vector3.down, fGroundDistance); //cast a ray to check if touching ground layer
+        //foreach (Vector3 pos in v3RaycastPositions) //for each ray cast pos
+        //{
+        //    if (Physics.Raycast(pos, Vector3.down, fGroundDistance)) //cast ray
+        //    {
+        //        bIsGrounded = true; //ground is near 
+        //    }
+        //}
+        bIsGrounded = Physics.Raycast(transform.position, Vector3.down, fGroundDistance); //cast a ray to check if touching ground layer
         
         if (Input.GetButtonDown("Jump")) //if jump pressed
         {
@@ -87,13 +87,13 @@ public class PlayerMovement : MonoBehaviour
 
         if (PlayerAnimationRef.playerAnim.GetBool("Airborne") == true)
         {
-            foreach (Vector3 pos in v3RaycastPositions) //for each ray cast pos
-            {
-                if (Physics.Raycast(pos, Vector3.down, 2f))
+            //foreach (Vector3 pos in v3RaycastPositions) //for each ray cast pos
+            //{
+                if (Physics.Raycast(transform.position, Vector3.down, 2f))
                 {
                     PlayerAnimationRef.Landing();
                 }
-            }
+            //}
         }
 
 
@@ -107,6 +107,15 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
+
+        if (bIsGrounded == true)
+        {
+            if (PlayerAnimationRef.playerAnim.GetBool("Airborne") == false)
+            {
+                PlayerAnimationRef.Landing();
+            }
+        }
+
     }
 
     /// <summary>
@@ -115,10 +124,10 @@ public class PlayerMovement : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.yellow;
-        foreach (Vector3 pos in v3RaycastPositions)
-        {
-            Gizmos.DrawLine(pos, pos + Vector3.down * fGroundDistance);
-        }
+        //foreach (Vector3 pos in v3RaycastPositions)
+        //{
+            Gizmos.DrawLine(transform.position, transform.position + Vector3.down * fGroundDistance);
+        //}
     }
 
 }
