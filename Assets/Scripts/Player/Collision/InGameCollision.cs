@@ -9,13 +9,16 @@ using UnityEngine;
 
 public class InGameCollision : MonoBehaviour
 {
-    //[SerializeField]
-    //GameObject goPlayerHandler;
-
+    ExitLevel ExitLevelRef;
 
     //may be re looked at when trying to implement multiple scenes within the house to avoid unfindable gameobjects
     //[SerializeField]
     //InventorySO soInventory;
+
+    private void Start()
+    {
+        ExitLevelRef = FindAnyObjectByType<ExitLevel>();
+    }
 
     /// <summary>
     /// if the player enters a trigger collider process if its something that needs to be picked up
@@ -26,8 +29,7 @@ public class InGameCollision : MonoBehaviour
     {
         if (a_cColliderInfo.gameObject.tag == "Danger")
         {
-            //goPlayerHandler.GetComponent<PlayerHandler>().PlayerDeath();
-            gameObject.GetComponent<PlayerHandler>().PlayerDeath();
+            ExitLevelRef.Death();
         }
     }
 
