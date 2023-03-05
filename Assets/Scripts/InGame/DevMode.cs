@@ -14,7 +14,11 @@ public class DevMode : MonoBehaviour
 
     private void Start()
     {
-         dpmDataPersistanceManager = GameObject.FindGameObjectWithTag("DataPersistanceManager").GetComponent<DataPersistenceManager>();
+        //dpmDataPersistanceManager = GameObject.FindGameObjectWithTag("DataPersistanceManager").GetComponent<DataPersistenceManager>();
+        dpmDataPersistanceManager = FindAnyObjectByType<DataPersistenceManager>();
+
+        DevMenu.SetActive(false); //hide dev menu
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     // Update is called once per frame
@@ -31,16 +35,19 @@ public class DevMode : MonoBehaviour
             Cursor.lockState = CursorLockMode.Locked;
         }
 
-        if (Input.GetKey(KeyCode.P))
+        if (Input.GetKey(KeyCode.Escape) && Input.GetKey(KeyCode.P))
         {
             dpmDataPersistanceManager.SaveGame();
             SceneLoader.Load(SceneLoader.Scene.DenScene);
         }
 
-        if (Input.GetKey(KeyCode.L))
+        if (Input.GetKey(KeyCode.Escape) && Input.GetKey(KeyCode.L))
         {
             dpmDataPersistanceManager.LoadGame();
         }
 
     }
+
+
+
 }

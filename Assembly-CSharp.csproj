@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{C7B43D32-CB64-A910-77A3-BF49D06D2A7B}</ProjectGuid>
+    <ProjectGuid>{EE290355-6B9F-3CFB-F85F-EBE1D98ADBD4}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -76,6 +76,7 @@
     <Compile Include="Assets\Scripts\ScriptableObjects\Scripts\GameObjectVariable.cs" />
     <Compile Include="Assets\Scripts\InGame\Traps\TrapTypes\WallPortals\WallPortals.cs" />
     <Compile Include="Assets\Scripts\DataPersistence\SerializableTypes\SerializableDictionary.cs" />
+    <Compile Include="Assets\Scripts\Player\Movement\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\SceneLoading\SceneLoader.cs" />
     <Compile Include="Assets\Scripts\DenScripts\DenManager.cs" />
     <Compile Include="Assets\Scripts\DataPersistence\Data\DataPersistenceManager.cs" />
@@ -100,7 +101,10 @@
     <Compile Include="Assets\Scripts\DataPersistence\Data\GameData.cs" />
     <Compile Include="Assets\Scripts\Player\Collision\InGameCollision.cs" />
     <Compile Include="Assets\Scripts\Player\Collision\DenCollision.cs" />
-    <Compile Include="Assets\Scripts\Player\Movement\PlayerMovement.cs" />
+    <Compile Include="Assets\Scripts\QuestManager.cs" />
+    <Compile Include="Assets\Scripts\FloatingText.cs" />
+    <Compile Include="Assets\Scripts\PumpkinDest.cs" />
+    <Compile Include="Assets\Scripts\InGame\RotateBetweenTwoObjects.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

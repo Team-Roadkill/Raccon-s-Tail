@@ -25,6 +25,10 @@ public class ExitLevel : MonoBehaviour
     {
         goInGameUI.SetActive(false); //hide all other ui
         goSuccessfulClearUI.SetActive(true); //show success ui  
+
+        Time.timeScale = 0;
+        Cursor.lockState = CursorLockMode.None;
+
     }
 
     /// <summary>
@@ -35,6 +39,9 @@ public class ExitLevel : MonoBehaviour
     {
         goInGameUI.SetActive(false); //hide all other ui    
         goFailedClearUI.SetActive(true); //show failed ui
+
+        Time.timeScale = 0;
+        Cursor.lockState = CursorLockMode.None;
     }
 
     /// <summary>
@@ -42,9 +49,14 @@ public class ExitLevel : MonoBehaviour
     /// </summary>
     public void ContinueSucessButton()
     {
-        dpmDataPersistanceManager = GameObject.FindGameObjectWithTag("DataPersistanceManager").GetComponent<DataPersistenceManager>(); //get dpm
-        dpmDataPersistanceManager.SaveGame(); //save progress
-        SceneLoader.Load(SceneLoader.Scene.DenScene); //load den
+        //dpmDataPersistanceManager = GameObject.FindGameObjectWithTag("DataPersistanceManager").GetComponent<DataPersistenceManager>(); //get dpm
+        //dpmDataPersistanceManager.SaveGame(); //save progress
+        //SceneLoader.Load(SceneLoader.Scene.DenScene); //load den
+
+
+        Time.timeScale = 1;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        
     }
 
     /// <summary>
@@ -52,7 +64,11 @@ public class ExitLevel : MonoBehaviour
     /// </summary>
     public void ContinueFailButton()
     {
-        SceneLoader.Load(SceneLoader.Scene.DenScene); //load den
+        //SceneLoader.Load(SceneLoader.Scene.DenScene); //load den
+
+
+        Time.timeScale = 1;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
 

@@ -1,9 +1,3 @@
-/////////////////////////////////////////////////////////
-/// Creator : Chris Johnson
-/// Date Created : 25/02/2023
-/// Purpose : when attach object collides with player it will attempt to update displayed dialog
-/// room for improvement in implementation
-/////////////////////////////////////////////////////////
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -19,12 +13,27 @@ public class DialogInteraction : MonoBehaviour
     [SerializeField] float fTimerLength = 5f;
     float iTimerDuration = 0;
 
+    //[SerializeField] QuestManager questManagerRef;
+    //temp
+    [SerializeField] GameObject quest;
+    [SerializeField] GameObject Timer;
+    [SerializeField] GameObject Day;
+    public bool itemObtained = false;
+    ExitLevel exitLevelRef;
+
+
     // Start is called before the first frame update
     void Start()
     {
+        exitLevelRef = FindAnyObjectByType<ExitLevel>();
+        //questManagerRef = FindObjectOfType<QuestManager>();
         iCurrentDisplayedDialogID = 0;
         tDisplayText = GameObject.FindGameObjectWithTag("Dialog");
         tDisplayText.SetActive(false);
+
+        quest.SetActive(false);
+        Timer.SetActive(false);
+        Day.SetActive(false);
     }
 
     // Update is called once per frame
@@ -44,7 +53,7 @@ public class DialogInteraction : MonoBehaviour
             //}
             //else
             //{
-                
+
             //}
         }
     }
@@ -57,12 +66,21 @@ public class DialogInteraction : MonoBehaviour
             {
                 if (tDisplayText.gameObject.activeSelf == false)
                 {
-                    if (iTimerDuration <= 0)
+
+                    if (itemObtained == true) //check quest item temp
+                    {
+                        Timer.SetActive(true);
+                        Day.SetActive(true);
+                        tDisplayText.GetComponent<Text>().text = "Thanks for finding my hammer! Heres your reward 'Watch' Its getting late you better leave before the witch returns - fin";
+                        exitLevelRef.SuccessfulClear();
+                    }
+                    else if (iTimerDuration <= 0)
                     {
                         iTimerDuration = fTimerLength; //set timer duration to timer length
+                        UpDateTextDisplay();
                     }
 
-                    UpDateTextDisplay();
+
                 }
             }
         }
@@ -81,10 +99,28 @@ public class DialogInteraction : MonoBehaviour
                 iCurrentDisplayedDialogID = iCurrentDisplayedDialogID + 1;
             }
         }
-        else if (a_sAllDialog.Count < iCurrentDisplayedDialogID) //check if current dialog to display has been exceeded
+        else if (a_sAllDialog.Count <= iCurrentDisplayedDialogID) //check if current dialog to display has been exceeded
         {
             iCurrentDisplayedDialogID = 0; //start dialog from begining
+            DisplayQuest();
         }
-        
+
+    }
+
+
+    //temp
+
+
+
+
+
+    public void DisplayQuest()
+    {
+        quest.SetActive(true);
+    }
+
+    public void HideQuest()
+    {
+        quest.SetActive(false);
     }
 }

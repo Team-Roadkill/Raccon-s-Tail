@@ -7,7 +7,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Spike : Trap
+public class Spike : MonoBehaviour
 {
     [SerializeField]
     GameObject goSpikes;
