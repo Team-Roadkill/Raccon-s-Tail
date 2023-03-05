@@ -35,7 +35,7 @@ public class Statue : MonoBehaviour
         detectionProgress = 0f;
         detectionBarScale = detectionBar.transform.localScale;
 
-        spotLight.intensity = 20;
+        spotLight.intensity = 50;
         spotLight.range = visionDistance;
         spotLight.spotAngle = visionConeAngle;
 
