@@ -116,4 +116,13 @@ public class Trap : MonoBehaviour, IDataPersistence
             Trigger();
         }
     }
+
+    public void Disarm()
+    {
+        Debug.Log("disarm");
+        this.gameObject.SetActive(false);
+    }
+
+
+
 }
