@@ -78,7 +78,7 @@
     <Compile Include="Assets\Scripts\UI\Bedroom\BedroomUI.cs" />
     <Compile Include="Assets\Scripts\DontDestroyOnLoad.cs" />
     <Compile Include="Assets\Scripts\ScriptableObjects\Scripts\GameObjectVariable.cs" />
-    <Compile Include="Assets\Scripts\InGame\Traps\TrapTypes\WallPortals\WallPortals.cs" />
+    <Compile Include="Assets\Scripts\InGame\Traps\TrapTypes\WallPortals\WallPortal.cs" />
     <Compile Include="Assets\Scripts\DataPersistence\SerializableTypes\SerializableDictionary.cs" />
     <Compile Include="Assets\Scripts\Player\Movement\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\SceneLoading\SceneLoader.cs" />
@@ -86,7 +86,6 @@
     <Compile Include="Assets\Scripts\DataPersistence\Data\DataPersistenceManager.cs" />
     <Compile Include="Assets\Scripts\OLD\LoadGameOnStart.cs" />
     <Compile Include="Assets\Scripts\DenScripts\ScoreManager.cs" />
-    <Compile Include="Assets\Scripts\InGame\Traps\TrapTypes\WallPortals\WallProjectile.cs" />
     <Compile Include="Assets\Scripts\DataPersistence\FileDataHandler.cs" />
     <Compile Include="Assets\Scripts\SceneLoading\TEMPSCENELOADING.cs" />
     <Compile Include="Assets\Scripts\SceneLoading\SceneLoaderCallback.cs" />
@@ -100,6 +99,7 @@
     <Compile Include="Assets\Scripts\DataPersistence\IDataPersistence.cs" />
     <Compile Include="Assets\Scripts\InGame\Traps\TrapTypes\Spike.cs" />
     <Compile Include="Assets\Scripts\Player\Movement\LockCursor.cs" />
+    <Compile Include="Assets\Scripts\InGame\Tools\Wand.cs" />
     <Compile Include="Assets\Scripts\InGame\ExitLevel.cs" />
     <Compile Include="Assets\Scripts\InGame\DevMode.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerAnimation.cs" />
@@ -108,7 +108,6 @@
     <Compile Include="Assets\Scripts\PumpkinDest.cs" />
     <Compile Include="Assets\Scripts\Player\Collision\InGameCollision.cs" />
     <Compile Include="Assets\Scripts\Player\Collision\DenCollision.cs" />
-    <Compile Include="Assets\Scripts\InGame\Tools\Wand.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
