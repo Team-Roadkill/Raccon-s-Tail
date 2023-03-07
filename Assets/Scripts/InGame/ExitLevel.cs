@@ -17,6 +17,11 @@ public class ExitLevel : MonoBehaviour
     [SerializeField] GameObject goSuccessfulClearUI;
     [SerializeField] GameObject goFailedClearUI;
 
+    private void Start()
+    {
+        Time.timeScale = 1;
+    }
+
     /// <summary>
     /// script to show on successful run
     /// shows successful clear ui

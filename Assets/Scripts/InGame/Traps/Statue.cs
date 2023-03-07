@@ -84,7 +84,7 @@ public class Statue : MonoBehaviour
                         detectionBar.transform.localScale = new Vector3(detectionBarScale.x * detectionProgress, detectionBarScale.y, detectionBarScale.z);
                         if (detectionProgress >= 0.999f)
                         {
-                            //spotted
+                            //spotted   
                             exitLevelRef.Death();
                         }
 

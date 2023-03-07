@@ -6,11 +6,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DevMode : MonoBehaviour
 {
     [SerializeField] GameObject DevMenu; //dev menu ref
     DataPersistenceManager dpmDataPersistanceManager;
+
+    [SerializeField] GameObject GameScene;
+    [SerializeField] GameObject TestingArea;
+
+    bool paused = false;
 
     private void Start()
     {
@@ -19,6 +25,7 @@ public class DevMode : MonoBehaviour
 
         DevMenu.SetActive(false); //hide dev menu
         Cursor.lockState = CursorLockMode.Locked;
+
     }
 
     // Update is called once per frame
@@ -47,6 +54,52 @@ public class DevMode : MonoBehaviour
         }
 
     }
+
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public void LoadTestingArea()
+    {
+        TestingArea.SetActive(true);
+        GameScene.SetActive(false);
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public void LoadGameScene()
+    {
+        GameScene.SetActive(true);
+        TestingArea.SetActive(false);
+    }
+
+    public void ReloadScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void TogglePause()
+    {
+        if (paused == true)
+        {
+            Time.timeScale = 1;
+            paused = false;
+        }
+        else
+        {
+            Time.timeScale = 0;
+            paused = true;
+        }
+    }
+
+
+
+
+
+
+
+
 
 
 
