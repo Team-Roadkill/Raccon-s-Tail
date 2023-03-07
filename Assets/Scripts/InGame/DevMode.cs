@@ -57,7 +57,7 @@ public class DevMode : MonoBehaviour
 
 
     /// <summary>
-    /// 
+    /// switch to the testing area
     /// </summary>
     public void LoadTestingArea()
     {
@@ -66,7 +66,7 @@ public class DevMode : MonoBehaviour
     }
 
     /// <summary>
-    /// 
+    /// switch to the game area
     /// </summary>
     public void LoadGameScene()
     {
@@ -74,11 +74,17 @@ public class DevMode : MonoBehaviour
         TestingArea.SetActive(false);
     }
 
+    /// <summary>
+    /// reload the active sceme
+    /// </summary>
     public void ReloadScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
+    /// <summary>
+    /// toggle the timescale of the game
+    /// </summary>
     public void TogglePause()
     {
         if (paused == true)

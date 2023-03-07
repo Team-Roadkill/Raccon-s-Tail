@@ -81,7 +81,6 @@ public class Statue : MonoBehaviour
         Quaternion targetRotation = Quaternion.Lerp(qRotationOne, qRotationTwo, t);
         transform.rotation = Quaternion.Euler(qInitialRotation.eulerAngles.x, targetRotation.eulerAngles.y, qInitialRotation.eulerAngles.z);
 
-
         fDetectionProgress = 0f;
         goDetectionBar.transform.localScale = new Vector3(0f, v3DetectionBarScale.y, v3DetectionBarScale.z);
     }

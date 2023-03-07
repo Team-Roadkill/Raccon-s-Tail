@@ -1,59 +1,47 @@
 /////////////////////////////////////////////////////////
 /// Creator : Chris Johnson
 /// Date Created : 07/03/2023
-/// Purpose : 
+/// Purpose : disable traps
 /////////////////////////////////////////////////////////
 using UnityEngine;
 
 public class Wand : MonoBehaviour
 {
-    // Reference to the trap object
-    private GameObject trap;
-
-    // Toggle to enable and disable the tool
-    private bool toolEnabled = false;
+    private bool toolEnabled = false; //store if tool is equipped
 
     private void Update()
     {
-        // Check if the tool is enabled
-        if (toolEnabled == true)
+        if (Input.GetMouseButtonDown(0))//if mouse click
         {
-            // Check if the left mouse button is pressed
-            if (Input.GetMouseButtonDown(0))
+            if (toolEnabled == true) //check if tool equipped
             {
-                Debug.Log("ray casted");
-                // Cast a ray from the mouse position to detect objects
-                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-                RaycastHit hit;
-
-                // Check if the ray hits an object with the "Trap" tag
-                if (Physics.Raycast(ray, out hit) && hit.collider.CompareTag("Trap"))
+                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition); //cast a ray to mouse pos
+                RaycastHit hit; //store hit info
+                if (Physics.Raycast(ray, out hit) && hit.collider.CompareTag("Trap")) //check trap hit
                 {
-                    // Get the trap object and call Disarm on its Trap script
-                    trap = hit.collider.gameObject;
-                    if (trap.GetComponent<Trap>() != null)
+                    GameObject trap; //store hit trap
+                    trap = hit.collider.gameObject; //get trap
+                    if (trap.GetComponent<Trap>() != null) //check if trap script exists
                     {
-                        trap.GetComponent<Trap>().Disarm();
+                        trap.GetComponent<Trap>().Disarm(); //disarm the trap
                     }
                 }
             }
         }
-
-        // Check if the Escape key is pressed
-        if (Input.GetKeyDown(KeyCode.Alpha2)) //num 2 top
+        if (Input.GetKeyDown(KeyCode.Alpha2)) //check 2 pressed 
         {
 
-            if (toolEnabled == true)
+            if (toolEnabled == true) //if tool equipped
             {
-                toolEnabled = false;
-                Cursor.lockState = CursorLockMode.Locked;
-                Cursor.visible = false;
+                toolEnabled = false; //unequip tool
+                Cursor.lockState = CursorLockMode.Locked; //lock cursor
+                Cursor.visible = false; //hide cursor
             }
             else
             {
-                toolEnabled = true;
-                Cursor.lockState = CursorLockMode.None;
-                Cursor.visible = true;
+                toolEnabled = true; //equip tool
+                Cursor.lockState = CursorLockMode.None; //disable cursor
+                Cursor.visible = true; //show cursor
 
             }
 
