@@ -17,6 +17,7 @@ public class DialogInteraction : MonoBehaviour
     //temp
     [SerializeField] GameObject quest;
     [SerializeField] GameObject Timer;
+    [SerializeField] GameObject Watch;
     [SerializeField] GameObject Day;
     public bool itemObtained = false;
     ExitLevel exitLevelRef;
@@ -34,6 +35,7 @@ public class DialogInteraction : MonoBehaviour
         quest.SetActive(false);
         Timer.SetActive(false);
         Day.SetActive(false);
+        Watch.SetActive(false);
     }
 
     // Update is called once per frame
@@ -44,7 +46,7 @@ public class DialogInteraction : MonoBehaviour
             iTimerDuration -= Time.deltaTime;
             tDisplayText.SetActive(true);
         }
-        else
+        else if (Day.gameObject.activeSelf == false)
         {
             tDisplayText.SetActive(false);
             //if (tDisplayText.gameObject.activeSelf == true)
@@ -71,16 +73,18 @@ public class DialogInteraction : MonoBehaviour
                     {
                         Timer.SetActive(true);
                         Day.SetActive(true);
+                        quest.SetActive(false);
+                        tDisplayText.SetActive(true);
+                        Watch.SetActive(true);
                         tDisplayText.GetComponent<Text>().text = "Thanks for finding my hammer! Heres your reward 'Watch' Its getting late you better leave before the witch returns - fin";
-                        exitLevelRef.SuccessfulClear();
+                        
+                        //exitLevelRef.SuccessfulClear();
                     }
                     else if (iTimerDuration <= 0)
                     {
                         iTimerDuration = fTimerLength; //set timer duration to timer length
                         UpDateTextDisplay();
                     }
-
-
                 }
             }
         }
@@ -91,6 +95,11 @@ public class DialogInteraction : MonoBehaviour
     /// </summary>
     private void UpDateTextDisplay()
     {
+        if (iCurrentDisplayedDialogID == (a_sAllDialog.Count - 1))
+        {
+            DisplayQuest();
+        }
+
         if (a_sAllDialog.Count != iCurrentDisplayedDialogID)
         {
             tDisplayText.GetComponent<Text>().text = a_sAllDialog[iCurrentDisplayedDialogID]; //update displayed text
@@ -102,16 +111,16 @@ public class DialogInteraction : MonoBehaviour
         else if (a_sAllDialog.Count <= iCurrentDisplayedDialogID) //check if current dialog to display has been exceeded
         {
             iCurrentDisplayedDialogID = 0; //start dialog from begining
-            DisplayQuest();
         }
-
     }
 
 
     //temp
 
-
-
+    public void UpdateQuestText()
+    {
+        quest.GetComponent<Text>().text = "-Return the hammer to eric";
+    }
 
 
     public void DisplayQuest()

@@ -20,7 +20,7 @@ public class Trap : MonoBehaviour, IDataPersistence
     enum TrapTypes
     {
         Spike,
-        WallPortals,
+        WallPortal,
         CeilingPortal,
 
     }
@@ -57,9 +57,9 @@ public class Trap : MonoBehaviour, IDataPersistence
             StartCoroutine(gameObject.GetComponent<Spike>().Activate(fDelay, fDuration)); //start the trap
             bShouldHideNextRun = true; //make sure the trap is removed on progress save
         }
-        else if (TrapType == TrapTypes.WallPortals)
+        else if (TrapType == TrapTypes.WallPortal)
         {
-            StartCoroutine(gameObject.GetComponent<Spike>().Activate(fDelay, fDuration));
+            StartCoroutine(gameObject.GetComponent<WallPortal>().Activate(fDelay, fDuration));
             bShouldHideNextRun = true; //make sure the trap is removed on progress save
         }
     }
@@ -116,4 +116,13 @@ public class Trap : MonoBehaviour, IDataPersistence
             Trigger();
         }
     }
+
+    public void Disarm()
+    {
+        Debug.Log("disarm");
+        this.gameObject.SetActive(false);
+    }
+
+
+
 }

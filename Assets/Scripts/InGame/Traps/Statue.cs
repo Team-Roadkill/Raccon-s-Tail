@@ -9,102 +9,79 @@ using UnityEngine;
 
 public class Statue : MonoBehaviour
 {
-    public Transform pointA; // Start point for rotation
-    public Transform pointB; // End point for rotation
-    public float rotationSpeed; // Speed of rotation
-    public float visionConeAngle; // Angle of vision cone
-    public float visionDistance; // Maximum distance for detecting objects
-    public string playerTag; // Tag of the player object
-    public float detectionTime; // Time it takes for detection to complete
-    public GameObject detectionBar; // Bar object for detection progress
+    [SerializeField] Quaternion qRotationOne; // first rotation angle
+    [SerializeField] Quaternion qRotationTwo; // second rotation angle
+    public float fRotationSpeed; // rotation speed
+    private Quaternion qInitialRotation; // starting rotation
 
-    private Quaternion initialRotation; // Initial rotation of the object
-    private bool detectingPlayer; // Whether the player is currently being detected
-    private float detectionProgress; // Current progress of detection
-    private Vector3 detectionBarScale; // Initial scale of detection bar
+    [SerializeField] float fVisionConeAngle; // vision angle
+    [SerializeField] float fVisionDistance; // vision distance
+    [SerializeField] float fDetectionTime; // time needed before 100% detection
 
-    [SerializeField] Light spotLight;
-    ExitLevel exitLevelRef;
+    [SerializeField] GameObject goDetectionBar; // bar to display detection progress
+    float fDetectionProgress; // progress of detection
+    Vector3 v3DetectionBarScale; // scale of detection bar
+
+    [SerializeField] Light spotLight; //light to show detection cone
+    ExitLevel exitLevelRef; //exit level ref
 
     void Start()
     {
+        //get script referances
         exitLevelRef = FindAnyObjectByType<ExitLevel>();
 
-        initialRotation = transform.rotation;
-        detectingPlayer = false;
-        detectionProgress = 0f;
-        detectionBarScale = detectionBar.transform.localScale;
+        //setup rotation values
+        qInitialRotation = transform.rotation;
 
-        spotLight.intensity = 20;
-        spotLight.range = visionDistance;
-        spotLight.spotAngle = visionConeAngle;
+        //set up detection values
+        fDetectionProgress = 0f;
+        v3DetectionBarScale = goDetectionBar.transform.localScale;
 
-
+        //set up light values
+        spotLight.intensity = 50;
+        spotLight.range = fVisionDistance;
+        spotLight.spotAngle = fVisionConeAngle;
     }
 
     void Update()
     {
-        //// Calculate the target rotation based on the current time
-        //float t = Mathf.PingPong(Time.time * rotationSpeed, 1f);
-        //Quaternion targetRotation = Quaternion.Lerp(pointA.rotation, pointB.rotation, t);
-
-        //// Apply the target rotation, but clamp it within the limits of pointA and pointB
-        //float clampedYRotation = Mathf.Clamp(targetRotation.eulerAngles.y, pointA.rotation.eulerAngles.y, pointB.rotation.eulerAngles.y);
-        //transform.rotation = Quaternion.Euler(initialRotation.eulerAngles.x, clampedYRotation, initialRotation.eulerAngles.z);
-
-
-
-        //float t = (Mathf.Sin(Time.time * rotationSpeed) + 1f) / 2f;
-        //Quaternion targetRotation = Quaternion.Lerp(pointA.rotation, pointB.rotation, t);
-        //transform.rotation = Quaternion.Euler(initialRotation.eulerAngles.x, targetRotation.eulerAngles.y, initialRotation.eulerAngles.z);
-
-
-
-        // Check if the player is within the vision cone
-        Collider[] colliders = Physics.OverlapSphere(transform.position, visionDistance);
-        foreach (Collider collider in colliders)
+        Collider[] colliders = Physics.OverlapSphere(transform.position, fVisionDistance); //get all objects within range
+        foreach (Collider collider in colliders) //check each object in range
         {
-            if (collider.gameObject.CompareTag(playerTag))
+            if (collider.gameObject.tag == "Player") //if the object is the player
             {
-                Vector3 direction = collider.transform.position - transform.position;
-                float angle = Vector3.Angle(direction, transform.forward);
-                if (angle < visionConeAngle / 2f)
+                Vector3 direction = collider.transform.position - transform.position; //get direction to object
+                float angle = Vector3.Angle(direction, transform.forward); //get the angle distance from looking dir to player
+                if (angle < fVisionConeAngle / 2f) //is the player within the vision angle
                 {
-                    // The player is within the vision cone
-                    if (!detectingPlayer)
+                    fDetectionProgress += Time.deltaTime / fDetectionTime; //increase detection
+                    fDetectionProgress = Mathf.Clamp(fDetectionProgress, 0f, 1f); //clamp detection progress
+                    goDetectionBar.transform.localScale = new Vector3(v3DetectionBarScale.x * fDetectionProgress, v3DetectionBarScale.y, v3DetectionBarScale.z); //scale pysical detection bar
+                    if (fDetectionProgress >= 0.999f) // if player fully detected
                     {
-                        // Start detecting the player
-                        detectingPlayer = true;
+                        exitLevelRef.Death(); //kill the player
                     }
-                    else
-                    {
-                        // Update the detection progress
-                        detectionProgress += Time.deltaTime / detectionTime;
-                        detectionProgress = Mathf.Clamp(detectionProgress, 0f, 1f);
-                        detectionBar.transform.localScale = new Vector3(detectionBarScale.x * detectionProgress, detectionBarScale.y, detectionBarScale.z);
-                        if (detectionProgress >= 0.999f)
-                        {
-                            //spotted
-                            exitLevelRef.Death();
-                        }
 
-                        transform.LookAt(GameObject.FindGameObjectWithTag("Player").gameObject.transform);
-                    }
-                    return;
+                    transform.LookAt(GameObject.FindGameObjectWithTag("Player").gameObject.transform); //lock on to player
 
+                    //add check to get if angle exits point a and b angles
+                    //clamp value inside values
+
+                    return; //stop checking collider list
                 }
             }
         }
 
+        //rotate the player between the two points
 
-        float t = (Mathf.Sin(Time.time * rotationSpeed) + 1f) / 2f;
-        Quaternion targetRotation = Quaternion.Lerp(pointA.rotation, pointB.rotation, t);
-        transform.rotation = Quaternion.Euler(initialRotation.eulerAngles.x, targetRotation.eulerAngles.y, initialRotation.eulerAngles.z);
+        qRotationOne.Normalize();
+        qRotationTwo.Normalize();
 
+        float t = (Mathf.Sin(Time.time * fRotationSpeed) + 1f) / 2f;
+        Quaternion targetRotation = Quaternion.Lerp(qRotationOne, qRotationTwo, t);
+        transform.rotation = Quaternion.Euler(qInitialRotation.eulerAngles.x, targetRotation.eulerAngles.y, qInitialRotation.eulerAngles.z);
 
-        // The player is not within the vision cone
-        detectingPlayer = false;
-        detectionProgress = 0f;
-        detectionBar.transform.localScale = new Vector3(0f, detectionBarScale.y, detectionBarScale.z);
+        fDetectionProgress = 0f;
+        goDetectionBar.transform.localScale = new Vector3(0f, v3DetectionBarScale.y, v3DetectionBarScale.z);
     }
 }
