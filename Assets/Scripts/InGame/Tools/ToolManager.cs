@@ -48,26 +48,26 @@ public class ToolManager : MonoBehaviour, IDataPersistence
     {
 
         //switch equiped tool when key pressed
-        if (Input.GetKeyDown(kcEmpty))
-        {
-            ToolSwitchFuntionality(Tools.Empty);
-        }
-        else if (Input.GetKeyDown(kcWatch))
-        {
-            ToolSwitchFuntionality(Tools.Watch);
-        }
-        else if (Input.GetKeyDown(kcWand))
-        {
-            ToolSwitchFuntionality(Tools.Wand);
-        }
-        else if (Input.GetKeyDown(kcHat))
-        {
-            ToolSwitchFuntionality(Tools.Gauntlet);
-        }
-        else if (Input.GetKeyDown(kcGauntlet))
-        {
-            ToolSwitchFuntionality(Tools.Hat);
-        }
+        //if (Input.GetKeyDown(kcEmpty))
+        //{
+        //    ToolSwitchFuntionality(Tools.Empty);
+        //}
+        //else if (Input.GetKeyDown(kcWatch))
+        //{
+        //    ToolSwitchFuntionality(Tools.Watch);
+        //}
+        //else if (Input.GetKeyDown(kcWand))
+        //{
+        //    ToolSwitchFuntionality(Tools.Wand);
+        //}
+        //else if (Input.GetKeyDown(kcHat))
+        //{
+        //    ToolSwitchFuntionality(Tools.Gauntlet);
+        //}
+        //else if (Input.GetKeyDown(kcGauntlet))
+        //{
+        //    ToolSwitchFuntionality(Tools.Hat);
+        //}
     }
 
     /// <summary>

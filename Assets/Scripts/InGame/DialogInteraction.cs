@@ -27,6 +27,7 @@ public class DialogInteraction : MonoBehaviour
     void Start()
     {
         exitLevelRef = FindAnyObjectByType<ExitLevel>();
+        Watch = FindAnyObjectByType<Watch>().gameObject;
         //questManagerRef = FindObjectOfType<QuestManager>();
         iCurrentDisplayedDialogID = 0;
         tDisplayText = GameObject.FindGameObjectWithTag("Dialog");
@@ -76,7 +77,7 @@ public class DialogInteraction : MonoBehaviour
                         quest.SetActive(false);
                         tDisplayText.SetActive(true);
                         Watch.SetActive(true);
-                        tDisplayText.GetComponent<Text>().text = "Thanks for finding my hammer! Heres your reward 'Watch' Its getting late you better leave before the witch returns - fin";
+                        tDisplayText.GetComponent<Text>().text = "Thanks for finding my hammer! Heres your reward 'Watch' it will help you in finding danger - fin";
                         
                         //exitLevelRef.SuccessfulClear();
                     }
