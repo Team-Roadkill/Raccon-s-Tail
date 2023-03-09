@@ -70,7 +70,7 @@
     <Compile Include="Assets\Scripts\InGame\Tools\ToolManager.cs" />
     <Compile Include="Assets\Scripts\Player\Movement\ThirdPersonMovement.cs" />
     <Compile Include="Assets\Scripts\ScriptableObjects\Scripts\InventorySO.cs" />
-    <Compile Include="Assets\Scripts\InGame\RotateBetweenTwoObjects.cs" />
+    <Compile Include="Assets\Scripts\RotateBetweenTwoObjects.cs" />
     <Compile Include="Assets\Scripts\OLD\Coin.cs" />
     <Compile Include="Assets\Scripts\SceneLoading\LoadingProgressBar.cs" />
     <Compile Include="Assets\Scripts\InGame\Traps\Statue.cs" />
@@ -89,10 +89,9 @@
     <Compile Include="Assets\Scripts\DataPersistence\FileDataHandler.cs" />
     <Compile Include="Assets\Scripts\SceneLoading\TEMPSCENELOADING.cs" />
     <Compile Include="Assets\Scripts\SceneLoading\SceneLoaderCallback.cs" />
-    <Compile Include="Assets\Scripts\OpenWindow.cs" />
     <Compile Include="Assets\Scripts\ScriptableObjects\Scripts\StringVariableList.cs" />
     <Compile Include="Assets\Scripts\InGame\DialogInteraction.cs" />
-    <Compile Include="Assets\Scripts\OpenDoor.cs" />
+    <Compile Include="Assets\Scripts\SpotRotationInteraction.cs" />
     <Compile Include="Assets\Scripts\DenScripts\DisplayedItem.cs" />
     <Compile Include="Assets\Scripts\OLD\LevelManager.cs" />
     <Compile Include="Assets\Scripts\InGame\TimeAndDay\LevelTimer.cs" />
@@ -108,6 +107,7 @@
     <Compile Include="Assets\Scripts\PumpkinDest.cs" />
     <Compile Include="Assets\Scripts\Player\Collision\InGameCollision.cs" />
     <Compile Include="Assets\Scripts\Player\Collision\DenCollision.cs" />
+    <Compile Include="Assets\Scripts\InGame\Tools\Watch.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
