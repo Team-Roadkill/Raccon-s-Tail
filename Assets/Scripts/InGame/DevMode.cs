@@ -21,7 +21,7 @@ public class DevMode : MonoBehaviour
     private void Start()
     {
         //dpmDataPersistanceManager = GameObject.FindGameObjectWithTag("DataPersistanceManager").GetComponent<DataPersistenceManager>();
-        dpmDataPersistanceManager = FindAnyObjectByType<DataPersistenceManager>();
+        //dpmDataPersistanceManager = FindAnyObjectByType<DataPersistenceManager>();
 
         DevMenu.SetActive(false); //hide dev menu
         Cursor.lockState = CursorLockMode.Locked;

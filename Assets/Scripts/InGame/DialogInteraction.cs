@@ -26,8 +26,8 @@ public class DialogInteraction : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        exitLevelRef = FindAnyObjectByType<ExitLevel>();
-        Watch = FindAnyObjectByType<Watch>().gameObject;
+        //exitLevelRef = FindAnyObjectByType<ExitLevel>();
+        //Watch = FindAnyObjectByType<Watch>().gameObject;
         //questManagerRef = FindObjectOfType<QuestManager>();
         iCurrentDisplayedDialogID = 0;
         tDisplayText = GameObject.FindGameObjectWithTag("Dialog");
