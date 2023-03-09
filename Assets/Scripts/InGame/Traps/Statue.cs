@@ -23,12 +23,13 @@ public class Statue : MonoBehaviour
     Vector3 v3DetectionBarScale; // scale of detection bar
 
     [SerializeField] Light spotLight; //light to show detection cone
-    ExitLevel exitLevelRef; //exit level ref
+    GameObject exitLevelRef; //exit level ref
 
     void Start()
     {
         //get script referances
-        //exitLevelRef = FindAnyObjectByType<ExitLevel>();
+        exitLevelRef = GameObject.FindGameObjectWithTag("UI");
+
 
         //setup rotation values
         qInitialRotation = transform.rotation;
@@ -59,7 +60,7 @@ public class Statue : MonoBehaviour
                     goDetectionBar.transform.localScale = new Vector3(v3DetectionBarScale.x * fDetectionProgress, v3DetectionBarScale.y, v3DetectionBarScale.z); //scale pysical detection bar
                     if (fDetectionProgress >= 0.999f) // if player fully detected
                     {
-                        exitLevelRef.Death(); //kill the player
+                        exitLevelRef.GetComponent<ExitLevel>().Death(); //kill the player
                     }
 
                     transform.LookAt(GameObject.FindGameObjectWithTag("Player").gameObject.transform); //lock on to player

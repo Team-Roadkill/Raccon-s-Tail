@@ -22,11 +22,11 @@ public class Teleport : MonoBehaviour
 
     private void OnTriggerEnter(Collider a_cColliderInfo)
     {
-        Debug.Log("g");
-    if(a_cColliderInfo.gameObject.tag == "Player"){
-
-    }       
-	a_cColliderInfo.gameObject.transform.position = pos.transform.position;
+        if(a_cColliderInfo.gameObject.tag == "Player")
+        {
+            a_cColliderInfo.gameObject.transform.position = pos.transform.position;
+        }       
+	
 
     }
 

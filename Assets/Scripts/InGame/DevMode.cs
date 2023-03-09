@@ -15,6 +15,10 @@ public class DevMode : MonoBehaviour
 
     [SerializeField] GameObject GameScene;
     [SerializeField] GameObject TestingArea;
+    [SerializeField] GameObject Basement;
+    [SerializeField] GameObject Player;
+     Vector3 PlayerLocation = new Vector3(33.3419991f,8.69999981f,62.3330002f);
+
 
     bool paused = false;
 
@@ -23,8 +27,8 @@ public class DevMode : MonoBehaviour
         //dpmDataPersistanceManager = GameObject.FindGameObjectWithTag("DataPersistanceManager").GetComponent<DataPersistenceManager>();
         //dpmDataPersistanceManager = FindAnyObjectByType<DataPersistenceManager>();
 
-        DevMenu.SetActive(false); //hide dev menu
-        Cursor.lockState = CursorLockMode.Locked;
+        //DevMenu.SetActive(false); //hide dev menu
+        //Cursor.lockState = CursorLockMode.Locked;
 
     }
 
@@ -61,8 +65,12 @@ public class DevMode : MonoBehaviour
     /// </summary>
     public void LoadTestingArea()
     {
+        Player.GetComponent<CharacterController>().enabled = false;
+        Player.transform.position = PlayerLocation;
+        Player.GetComponent<CharacterController>().enabled = true;
         TestingArea.SetActive(true);
         GameScene.SetActive(false);
+        Basement.SetActive(false);
     }
 
     /// <summary>
@@ -70,9 +78,30 @@ public class DevMode : MonoBehaviour
     /// </summary>
     public void LoadGameScene()
     {
+         Player.GetComponent<CharacterController>().enabled = false;
+        Player.transform.position = new Vector3(107.709999f,-8.78999996f,171.009995f);
+        Player.GetComponent<CharacterController>().enabled = true;
         GameScene.SetActive(true);
         TestingArea.SetActive(false);
+         Basement.SetActive(false);
     }
+
+/// <summary>
+    /// switch to the game area
+    /// </summary>
+    public void LoadBasement()
+    {
+         Player.GetComponent<CharacterController>().enabled = false;
+        Player.transform.position = PlayerLocation;
+        Player.GetComponent<CharacterController>().enabled = true;
+        GameScene.SetActive(false);
+        TestingArea.SetActive(false);
+        Basement.SetActive(true);
+    }
+
+
+
+
 
     /// <summary>
     /// reload the active sceme
