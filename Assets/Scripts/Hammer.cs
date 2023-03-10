@@ -9,7 +9,7 @@ public class Hammer : MonoBehaviour//, DataPersistenceManager
     // Start is called before the first frame update
     void Start()
     {
-        diaInterRef = GameObject.FindGameObjectWithTag("dia").GetComponent<DialogInteraction>();
+        //diaInterRef = FindAnyObjectByType<DialogInteraction>();
     }
 
     private void OnTriggerEnter(Collider other)

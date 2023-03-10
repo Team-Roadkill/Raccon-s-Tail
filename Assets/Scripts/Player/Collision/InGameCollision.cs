@@ -9,7 +9,7 @@ using UnityEngine;
 
 public class InGameCollision : MonoBehaviour
 {
-    GameObject ExitLevelRef;
+    ExitLevel ExitLevelRef;
 
     //may be re looked at when trying to implement multiple scenes within the house to avoid unfindable gameobjects
     //[SerializeField]
@@ -17,7 +17,7 @@ public class InGameCollision : MonoBehaviour
 
     private void Start()
     {
-        ExitLevelRef = GameObject.FindGameObjectWithTag("UI");
+        //ExitLevelRef = FindAnyObjectByType<ExitLevel>();
     }
 
     /// <summary>
@@ -29,7 +29,7 @@ public class InGameCollision : MonoBehaviour
     {
         if (a_cColliderInfo.gameObject.tag == "Danger")
         {
-            ExitLevelRef.GetComponent<ExitLevel>().Death();
+            ExitLevelRef.Death();
         }
     }
 
