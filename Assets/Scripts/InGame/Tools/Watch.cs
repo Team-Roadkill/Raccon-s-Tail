@@ -1,53 +1,52 @@
+/////////////////////////////////////////////////////////
+/// Creator : Chris Johnson
+/// Date Created : 17/02/2023
+/// Purpose :  manage tools if unlocked, if equipped and interaction
+/////////////////////////////////////////////////////////
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Watch : MonoBehaviour
 {
-    [SerializeField] float fWatchDetectDistance = 5f;
-    [SerializeField] float fLightDuration = 1f;
-    [SerializeField] GameObject lightPrefab;
+    [SerializeField] float fWatchDetectDistance = 5f; //distance watch can detect traps
+    [SerializeField] float fLingerDuration = 1f; //duration effect is active
+    [SerializeField] GameObject trapInArea; //effect for a nearby trap
+    [SerializeField] float fTimeBetweenChecks = 1f; //time between updates
 
-    float fStartingCooldown = 15f;
-    float fCooldownTime = 0f;
+    [SerializeField] GameObject goTimeDisplay;
+    [SerializeField] GameObject goDayCountDisplay;
 
+    float fTimeCount = 0f; //time to countdown
 
     private void Start()
     {
+        goTimeDisplay.SetActive(true);
+        goDayCountDisplay.SetActive(true);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (fCooldownTime > 0)
+
+
+
+        if (fTimeCount > 0)
         {
-            fCooldownTime -= Time.deltaTime;
+            fTimeCount -= Time.deltaTime;
         }
         else
         {
-            if (Input.GetKey(KeyCode.Alpha1))
+            Collider[] colliders = Physics.OverlapSphere(transform.position, fWatchDetectDistance); //get all objects within range
+            foreach (Collider c in colliders)
             {
-                Collider[] colliders = Physics.OverlapSphere(transform.position, fWatchDetectDistance); //get all objects within range
-                foreach (Collider c in colliders)
+                if (c.gameObject.tag == "Trap")
                 {
-                    if (c.gameObject.tag == "Trap")
-                    {
-                        GameObject goTrapLight = Instantiate(lightPrefab, c.gameObject.transform.position, transform.rotation);
-                        Destroy(goTrapLight, fLightDuration);
-                    }
+                    GameObject goTrapLight = Instantiate(trapInArea, c.gameObject.transform.position, transform.rotation);
+                    Destroy(goTrapLight, fLingerDuration);
                 }
-                fCooldownTime = fStartingCooldown;
             }
+            fTimeCount = fTimeBetweenChecks;
         }
-    }
-
-
-    public void LoadData(GameData gdData)
-    {
-    }
-
-    public void SaveData(ref GameData gdData)
-    {
-
     }
 }

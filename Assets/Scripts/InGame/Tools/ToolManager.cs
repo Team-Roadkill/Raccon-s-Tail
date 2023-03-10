@@ -15,6 +15,16 @@ public class ToolManager : MonoBehaviour, IDataPersistence
     [SerializeField] GameObject goGauntletObject;
     [SerializeField] GameObject goHatObject;
 
+    private void Start()
+    {
+        goWatchObject.SetActive(false);
+        goWandObject.SetActive(false);
+        goGauntletObject.SetActive(false);
+        goHatObject.SetActive(false);
+    }
+
+
+
     public void UnlockWatch()
     {
         goWatchObject.SetActive(true);

@@ -18,7 +18,7 @@ public class QuestDisplayManager : MonoBehaviour, IDataPersistence
 
     private void Start()
     {
-        AddNewQuest(1, "QuestTest");
+        //AddNewQuest(1, "QuestTest");
     }
 
     /// <summary>
@@ -39,6 +39,7 @@ public class QuestDisplayManager : MonoBehaviour, IDataPersistence
     /// </summary>
     public void RemoveQuest(int a_iQuestIDToRemove)
     {
+        Debug.Log("Quest remove attempt");
         if (li_isQuests.ContainsKey(a_iQuestIDToRemove) == true)
         {
             li_isQuests.Remove(a_iQuestIDToRemove); //remove quest
@@ -52,6 +53,12 @@ public class QuestDisplayManager : MonoBehaviour, IDataPersistence
     /// </summary>
     public void UpdateQuestDisplay()
     {
+        foreach (Transform childTransform in goQuestContainer.transform)
+        {
+            Destroy(childTransform.gameObject);
+        }
+
+
         //looping though all quests to ensure nothing has been incorrectly updated /added/removed
         foreach (KeyValuePair<int, string> kvp in li_isQuests) 
         {

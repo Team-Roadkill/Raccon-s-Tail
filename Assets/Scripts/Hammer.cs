@@ -1,17 +1,24 @@
+/////////////////////////////////////////////////////////
+/// Creator : Chris Johnson
+/// Date Created : 10/03/2023 ~
+/// Purpose : 
+/////////////////////////////////////////////////////////
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Hammer : MonoBehaviour, IDataPersistence
 {
-    DialogInteraction diaInterRef;
+    EricInteraction diaInterRef;
+    QuestDisplayManager qdmQuestRef;
 
     public bool bHammerFound = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        diaInterRef = FindAnyObjectByType<DialogInteraction>();
+        diaInterRef = FindAnyObjectByType<EricInteraction>();
+        qdmQuestRef = FindAnyObjectByType<QuestDisplayManager>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -19,7 +26,7 @@ public class Hammer : MonoBehaviour, IDataPersistence
         if (other.gameObject.tag == "Player")
         {
             bHammerFound = true;
-            diaInterRef.itemObtained = true;
+            diaInterRef.HammerFound();
             gameObject.GetComponent<Renderer>().enabled = false;
             gameObject.GetComponent<Collider>().enabled = false;
             
