@@ -12,6 +12,10 @@ public class Watch : MonoBehaviour
     float fCooldownTime = 0f;
 
 
+    private void Start()
+    {
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -35,5 +39,15 @@ public class Watch : MonoBehaviour
                 fCooldownTime = fStartingCooldown;
             }
         }
+    }
+
+
+    public void LoadData(GameData gdData)
+    {
+    }
+
+    public void SaveData(ref GameData gdData)
+    {
+
     }
 }

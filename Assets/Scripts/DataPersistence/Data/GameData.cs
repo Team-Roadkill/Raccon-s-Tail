@@ -14,8 +14,9 @@ public class GameData
     public int iDaysPassed; //current day
     public SerializableDictionary<string, bool> sbCollectablesFound; //collectables collected // ID, collected status
     public SerializableDictionary<string, bool> sbTrapsAndTier; //traps active // ID, trap tier - 0 = none
-    public SerializableDictionary<string, bool> sbToolsUnlocked; //tools unlocked // Tool, unlocked
-
+    public SerializableDictionary<int, string> isActiveQuests; //tools unlocked // Tool, unlocked
+    public bool bHammerFound;
+    public string[] tools;
 
 
     /// <summary>
@@ -27,7 +28,9 @@ public class GameData
         this.iDaysPassed = 0;
         sbCollectablesFound = new SerializableDictionary<string, bool>();
         sbTrapsAndTier = new SerializableDictionary<string, bool>();
-        sbToolsUnlocked = new SerializableDictionary<string, bool>();
+        isActiveQuests = new SerializableDictionary<int, string>();
+        tools = new string[3];
+        bHammerFound = false;
     }
 
 }

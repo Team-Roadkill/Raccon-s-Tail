@@ -8,6 +8,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// dev mode settings
+/// </summary>
+public static class DevSettings
+{
+    public static bool devModeEnabled = false;
+}
+
 public class DevMode : MonoBehaviour
 {
     [SerializeField] GameObject DevMenu; //dev menu ref
@@ -31,28 +39,30 @@ public class DevMode : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.LeftControl) && Input.GetKey(KeyCode.M)) //if both left ctrl and m pressed
+        if (DevSettings.devModeEnabled == true)
         {
-            DevMenu.SetActive(true); //show dev menu
-            Cursor.lockState = CursorLockMode.None; // unlock cursor so shown
-        }
-        else if (Input.GetKey(KeyCode.Escape) && Input.GetKey(KeyCode.M)) //if both esc and m pressed
-        {
-            DevMenu.SetActive(false); //hide dev menu
-            Cursor.lockState = CursorLockMode.Locked;
-        }
+            if (Input.GetKey(KeyCode.LeftControl) && Input.GetKey(KeyCode.M)) //if both left ctrl and m pressed
+            {
+                DevMenu.SetActive(true); //show dev menu
+                Cursor.lockState = CursorLockMode.None; // unlock cursor so shown
+            }
+            else if (Input.GetKey(KeyCode.Escape) && Input.GetKey(KeyCode.M)) //if both esc and m pressed
+            {
+                DevMenu.SetActive(false); //hide dev menu
+                Cursor.lockState = CursorLockMode.Locked;
+            }
 
-        if (Input.GetKey(KeyCode.Escape) && Input.GetKey(KeyCode.P))
-        {
-            dpmDataPersistanceManager.SaveGame();
-            SceneLoader.Load(SceneLoader.Scene.DenScene);
-        }
+            if (Input.GetKey(KeyCode.Escape) && Input.GetKey(KeyCode.P))
+            {
+                dpmDataPersistanceManager.SaveGame();
+                SceneLoader.Load(SceneLoader.Scene.DenScene);
+            }
 
-        if (Input.GetKey(KeyCode.Escape) && Input.GetKey(KeyCode.L))
-        {
-            dpmDataPersistanceManager.LoadGame();
+            if (Input.GetKey(KeyCode.Escape) && Input.GetKey(KeyCode.L))
+            {
+                dpmDataPersistanceManager.LoadGame();
+            }
         }
-
     }
 
 
@@ -100,13 +110,5 @@ public class DevMode : MonoBehaviour
     }
 
 
-
-
-
-
-
-
-
-
-
 }
+

@@ -67,7 +67,7 @@
     <Compile Include="Assets\Scripts\DenScripts\DenTunnel.cs" />
     <Compile Include="Assets\Scripts\OLD\DeathZone.cs" />
     <Compile Include="Assets\Scripts\InGame\Loot\Collectable.cs" />
-    <Compile Include="Assets\Scripts\QuestManager.cs" />
+    <Compile Include="Assets\Scripts\QuestDisplayManager.cs" />
     <Compile Include="Assets\Scripts\InGame\Tools\ToolManager.cs" />
     <Compile Include="Assets\Scripts\Player\Movement\ThirdPersonMovement.cs" />
     <Compile Include="Assets\Scripts\ScriptableObjects\Scripts\InventorySO.cs" />
