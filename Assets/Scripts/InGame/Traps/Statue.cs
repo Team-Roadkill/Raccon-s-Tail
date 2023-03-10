@@ -28,7 +28,7 @@ public class Statue : MonoBehaviour
     void Start()
     {
         //get script referances
-        //exitLevelRef = FindAnyObjectByType<ExitLevel>();
+        exitLevelRef = FindAnyObjectByType<ExitLevel>();
 
         //setup rotation values
         qInitialRotation = transform.rotation;

@@ -17,7 +17,7 @@ public class InGameCollision : MonoBehaviour
 
     private void Start()
     {
-        //ExitLevelRef = FindAnyObjectByType<ExitLevel>();
+        ExitLevelRef = FindAnyObjectByType<ExitLevel>();
     }
 
     /// <summary>
