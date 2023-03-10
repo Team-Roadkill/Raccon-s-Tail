@@ -57,6 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Hammer.cs" />
+    <Compile Include="Assets\Scripts\InGame\Tools\Watch.cs" />
     <Compile Include="Assets\Scripts\FloatingText.cs" />
     <Compile Include="Assets\Scripts\OLD\TempExitHouse.cs" />
     <Compile Include="Assets\Scripts\Player\Movement\MovementTemp.cs" />
@@ -107,7 +108,6 @@
     <Compile Include="Assets\Scripts\PumpkinDest.cs" />
     <Compile Include="Assets\Scripts\Player\Collision\InGameCollision.cs" />
     <Compile Include="Assets\Scripts\Player\Collision\DenCollision.cs" />
-    <Compile Include="Assets\Scripts\InGame\Tools\Watch.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
