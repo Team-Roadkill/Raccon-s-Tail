@@ -98,6 +98,8 @@
     <Compile Include="Assets\Scripts\InGame\TimeAndDay\LevelTimer.cs" />
     <Compile Include="Assets\Scripts\DataPersistence\IDataPersistence.cs" />
     <Compile Include="Assets\Scripts\InGame\Traps\TrapTypes\Spike.cs" />
+    <Compile Include="Assets\Scripts\InGame\Tools\Gauntlet.cs" />
+    <Compile Include="Assets\TempUnlockTools.cs" />
     <Compile Include="Assets\Scripts\Player\Movement\LockCursor.cs" />
     <Compile Include="Assets\Scripts\InGame\Tools\Wand.cs" />
     <Compile Include="Assets\Scripts\InGame\ExitLevel.cs" />
@@ -108,8 +110,6 @@
     <Compile Include="Assets\Scripts\PumpkinDest.cs" />
     <Compile Include="Assets\Scripts\Player\Collision\InGameCollision.cs" />
     <Compile Include="Assets\Scripts\Player\Collision\DenCollision.cs" />
-    <Compile Include="Assets\Gauntlet.cs" />
-    <Compile Include="Assets\TempUnlockTools.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

@@ -21,14 +21,21 @@ public class Watch : MonoBehaviour
 
     private void Start()
     {
-        goTimeDisplay.SetActive(true);
+        goTimeDisplay.SetActive(false);
         goDayCountDisplay.SetActive(true);
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            goTimeDisplay.SetActive(true);
+        }
+        else if (Input.GetKeyUp(KeyCode.Alpha1))
+        {
+            goTimeDisplay.SetActive(false);
+        }
 
 
         if (fTimeCount > 0)

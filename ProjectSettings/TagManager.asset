@@ -15,6 +15,7 @@ TagManager:
   - Trap
   - Coin
   - DialogField
+  - gMove
   layers:
   - Default
   - TransparentFX

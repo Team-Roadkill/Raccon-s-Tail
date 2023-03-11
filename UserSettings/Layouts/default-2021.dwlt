@@ -48,7 +48,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 17
+  controlID: 54
 --- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -223,7 +223,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 24
+  controlID: 22
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -248,7 +248,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 25
+  controlID: 23
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -317,22 +317,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Materials
+    - Assets/Scripts
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Materials
+  - Assets/Scripts
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\chris\Desktop\Final\Group\GITHUB\Raccon-s-Tail
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 67}
-    m_SelectedIDs: 448c0000
-    m_LastClickedID: 35908
-    m_ExpandedIDs: 00000000988a00009a8a00009c8a00009e8a000000ca9a3bffffff7f
+    m_SelectedIDs: fc8a0000
+    m_LastClickedID: 35580
+    m_ExpandedIDs: 00000000f88a0000fa8a0000fc8a0000fe8a000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -360,7 +360,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000988a00009a8a00009c8a00009e8a0000
+    m_ExpandedIDs: 00000000f88a0000fa8a0000fc8a0000fe8a0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -490,7 +490,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 1412fcff8e4cfcff6ce8fcff54c4feff06f3ffff2cf3ffff42f4ffff96faffff9afaffff9efaffffa2faffffa6faffffaafaffffaefaffffc2faffffc6faffffcafafffff4fafffffcfaffff8872000092750000e2760000587900005a7b0000587f000072800000aa820000de93000064940000
+      m_ExpandedIDs: cc84ffffa4baffff36bdffff06c0ffff98faffff9cfaffffa0faffffa4faffffc2faffffc6faffffcafafffff4fafffffefaffffd26d0000be6f00007a74000090750000447700009e9f0100
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -772,9 +772,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 33.396248, y: -5.6043453, z: 62.457817}
+    m_Target: {x: 23.847733, y: -9.956366, z: 56.45182}
     speed: 2
-    m_Value: {x: 33.396248, y: -5.6043453, z: 62.457817}
+    m_Value: {x: 23.847733, y: -9.956366, z: 56.45182}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -821,13 +821,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.08790883, y: 0.6330911, z: -0.07267825, w: -0.7656442}
+    m_Target: {x: 0.20071214, y: 0.5872565, z: -0.15328276, w: 0.76901555}
     speed: 2
-    m_Value: {x: -0.08675917, y: 0.6331913, z: -0.07172759, w: -0.7657654}
+    m_Value: {x: 0.21019809, y: 0.5786787, z: -0.15755244, w: 0.7720913}
   m_Size:
-    m_Target: 2.22586
+    m_Target: 29.366781
     speed: 2
-    m_Value: 2.1300097
+    m_Value: 29.366781
   m_Ortho:
     m_Target: 0
     speed: 2
