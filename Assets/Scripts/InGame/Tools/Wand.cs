@@ -7,13 +7,14 @@ using UnityEngine;
 
 public class Wand : MonoBehaviour
 {
-    private bool toolEnabled = false; //store if tool is equipped
+    private bool bToolActive = false; //store if tool is equipped
 
     private void Update()
     {
+
         if (Input.GetMouseButtonDown(0))//if mouse click
         {
-            if (toolEnabled == true) //check if tool equipped
+            if (bToolActive == true) //check if tool equipped
             {
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition); //cast a ray to mouse pos
                 RaycastHit hit; //store hit info
@@ -31,15 +32,15 @@ public class Wand : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha2)) //check 2 pressed 
         {
 
-            if (toolEnabled == true) //if tool equipped
+            if (bToolActive == true) //if tool equipped
             {
-                toolEnabled = false; //unequip tool
+                bToolActive = false; //unequip tool
                 Cursor.lockState = CursorLockMode.Locked; //lock cursor
                 Cursor.visible = false; //hide cursor
             }
             else
             {
-                toolEnabled = true; //equip tool
+                bToolActive = true; //equip tool
                 Cursor.lockState = CursorLockMode.None; //disable cursor
                 Cursor.visible = true; //show cursor
 

@@ -8,12 +8,14 @@ TagManager:
   - Day
   - Danger
   - Timer
-  - Dialog
   - DataPersistanceManager
   - LevelManager
   - UIobj
   - Dest
   - Trap
+  - Coin
+  - DialogField
+  - gMove
   layers:
   - Default
   - TransparentFX
