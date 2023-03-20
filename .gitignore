@@ -60,5 +60,5 @@ sysinfo.txt
 crashlytics-build.properties
 
 *.dwlt
-*.dwlt
 UserSettings/Layouts/default-2021.dwlt
+ProjectSettings/Packages/com.unity.probuilder/Settings.json
