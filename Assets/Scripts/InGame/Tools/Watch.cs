@@ -17,25 +17,27 @@ public class Watch : MonoBehaviour
     [SerializeField] GameObject goTimeDisplay;
     [SerializeField] GameObject goDayCountDisplay;
 
+    [SerializeField] GameObject goWatchGlow;
+
     float fTimeCount = 0f; //time to countdown
 
     private void Start()
     {
-        goTimeDisplay.SetActive(false);
+        goTimeDisplay.SetActive(true);
         goDayCountDisplay.SetActive(true);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            goTimeDisplay.SetActive(true);
-        }
-        else if (Input.GetKeyUp(KeyCode.Alpha1))
-        {
-            goTimeDisplay.SetActive(false);
-        }
+        //if (Input.GetKeyDown(KeyCode.Alpha1))
+        //{
+        //    goTimeDisplay.SetActive(true);
+        //}
+        //else if (Input.GetKeyUp(KeyCode.Alpha1))
+        //{
+        //    goTimeDisplay.SetActive(false);
+        //}
 
 
         if (fTimeCount > 0)
@@ -49,8 +51,18 @@ public class Watch : MonoBehaviour
             {
                 if (c.gameObject.tag == "Trap")
                 {
-                    GameObject goTrapLight = Instantiate(trapInArea, c.gameObject.transform.position, transform.rotation);
-                    Destroy(goTrapLight, fLingerDuration);
+                    //GameObject goTrapLight = Instantiate(trapInArea, c.gameObject.transform.position, transform.rotation);
+                    //Destroy(goTrapLight, fLingerDuration);
+
+                    GameObject goWatchLight = Instantiate(goWatchGlow, gameObject.transform.position, transform.rotation, gameObject.transform);
+                    Destroy(goWatchLight, fLingerDuration);
+
+
+
+                    //check dist to obj
+                    //set glow
+
+
                 }
             }
             fTimeCount = fTimeBetweenChecks;
