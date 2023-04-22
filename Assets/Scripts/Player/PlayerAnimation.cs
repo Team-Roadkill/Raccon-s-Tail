@@ -11,8 +11,6 @@ public class PlayerAnimation : MonoBehaviour
 {
     public Animator playerAnim;
 
-
-
     void Update()
     {
         if (playerAnim.GetBool("Airborne") == false)
@@ -24,13 +22,13 @@ public class PlayerAnimation : MonoBehaviour
             {
                 if (Input.GetKey(KeyCode.LeftShift)) //running pressed
                 {
-                    playerAnim.SetTrigger("Run");
-                    playerAnim.ResetTrigger("Walk");
+                    playerAnim.SetTrigger("TriggerRun");
+                    playerAnim.ResetTrigger("TriggerWalk");
                 }
                 else //running not pressed
                 {
-                    playerAnim.ResetTrigger("Run");
-                    playerAnim.SetTrigger("Walk");
+                    playerAnim.ResetTrigger("TriggerRun");
+                    playerAnim.SetTrigger("TriggerWalk");
 
                 }
             }
@@ -38,21 +36,29 @@ public class PlayerAnimation : MonoBehaviour
                     Input.GetButton("Vertical") == false
                     )
             {
-                playerAnim.ResetTrigger("Walk");
-                playerAnim.SetTrigger("Idle");
+                playerAnim.ResetTrigger("TriggerWalk");
+                playerAnim.SetTrigger("TriggerIdle");
             }
         }
     }
 
+
+    public void Interact()
+    {
+        playerAnim.SetTrigger("Interact");
+    }
+
+
+
     public void Jumping()
     {
-        playerAnim.SetTrigger("Jumping");
+        playerAnim.SetTrigger("TriggerJumpStart");
         playerAnim.SetBool("Airborne", true);
     }
 
     public void Landing()
     {
-        playerAnim.SetTrigger("Landing");
+        playerAnim.SetTrigger("TriggerJumpLand");
         playerAnim.SetBool("Airborne", false);
     }
 

@@ -92,6 +92,7 @@
     <Compile Include="Assets\Scripts\SceneLoading\TEMPSCENELOADING.cs" />
     <Compile Include="Assets\Scripts\SceneLoading\SceneLoaderCallback.cs" />
     <Compile Include="Assets\Scripts\ScriptableObjects\Scripts\StringVariableList.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerAnimation1.cs" />
     <Compile Include="Assets\Scripts\InGame\EricInteraction.cs" />
     <Compile Include="Assets\Scripts\SpotRotationInteraction.cs" />
     <Compile Include="Assets\Scripts\DenScripts\DisplayedItem.cs" />
