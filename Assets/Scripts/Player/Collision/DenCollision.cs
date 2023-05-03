@@ -6,13 +6,9 @@ using UnityEngine.SceneManagement;
 
 public class DenCollision : MonoBehaviour
 {
-    [SerializeField] Text tInteractText;
-
 
     private void OnTriggerEnter(Collider a_cColliderInfo)
     {
-        tInteractText.gameObject.SetActive(true);
-        //tInteractText.gameObject.transform =;
 
         if (a_cColliderInfo.name == "Door" || a_cColliderInfo.name == "ExitRoom")
         {
@@ -28,8 +24,8 @@ public class DenCollision : MonoBehaviour
 
         if (a_cColliderInfo.name == "Tunnel")
         {
-            //SceneLoader.Load(SceneLoader.Scene.Testing_Chris);
-            SceneLoader.Load(SceneLoader.Scene.HouseScene);
+            SceneLoader.Load(SceneLoader.Scene.Testing_Chris);
+            //SceneLoader.Load(SceneLoader.Scene.HouseScene);
         }
 
     }
