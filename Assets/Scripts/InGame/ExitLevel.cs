@@ -60,12 +60,12 @@ public class ExitLevel : MonoBehaviour, IDataPersistence
     public void ContinueSucessButton()
     {
         dpmDataPersistanceManager = GameObject.FindGameObjectWithTag("DataPersistanceManager").GetComponent<DataPersistenceManager>(); //get dpm
-        dpmDataPersistanceManager.SaveGame(); //save progress
+        //dpmDataPersistanceManager.SaveGame(); //save progress
         SceneLoader.Load(SceneLoader.Scene.DenScene); //load den
 
 
-        Time.timeScale = 1;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        //Time.timeScale = 1;
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 
     }
 
