@@ -19,8 +19,8 @@ public class ToolManager : MonoBehaviour, IDataPersistence
     {
         goWatchObject.SetActive(false);
         goWandObject.SetActive(false);
-        goGauntletObject.SetActive(false);
-        goHatObject.SetActive(false);
+        //goGauntletObject.SetActive(false);
+        //goHatObject.SetActive(false);
     }
 
 
