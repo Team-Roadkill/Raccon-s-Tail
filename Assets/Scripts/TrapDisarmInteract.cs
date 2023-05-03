@@ -9,6 +9,17 @@ using UnityEngine;
 
 public class TrapDisarmInteract : MonoBehaviour
 {
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Player") //if player inside
+        {
+            
+        }
+    }
+
+
+
     private void OnTriggerStay(Collider other)
     {
         if (other.tag == "Player") //if player inside

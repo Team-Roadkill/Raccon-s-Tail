@@ -20,11 +20,11 @@ public static class SceneLoader
         LoadingScene,
         HouseScene,
         DenScene,
-        
+        Testing_Chris
     }
 
     private static Action aOnLoaderCallback;
-    private static AsyncOperation asLoadingAsyncOperation;
+    private static AsyncOperation aAsyncOperation;
 
     /// <summary>
     /// load a new scene
@@ -53,7 +53,7 @@ public static class SceneLoader
     {
         yield return null; //wait frame
 
-        AsyncOperation aAsyncOperation = SceneManager.LoadSceneAsync(a_sScene.ToString()); //start loading
+        aAsyncOperation = SceneManager.LoadSceneAsync(a_sScene.ToString()); //start loading
 
         while (!aAsyncOperation.isDone == false) //wait until load is done
         {
@@ -67,14 +67,17 @@ public static class SceneLoader
     /// <returns></returns>
     public static float GetLoadingProgress()
     {
-        if (asLoadingAsyncOperation != null)
-        {
-            return asLoadingAsyncOperation.progress; //return the loading progress
-        }
-        else
-        {
-            return 1f; //else return 1
-        }
+        return aAsyncOperation.progress;
+
+
+        //if (aAsyncOperation != null)
+        //{
+        //    return aAsyncOperation.progress; //return the loading progress
+        //}
+        //else
+        //{
+        //    return 1f; //else return 1
+        //}
     }
 
 

@@ -37,10 +37,17 @@ public class Trap : MonoBehaviour, IDataPersistence
 
     public void Start()
     {
+        //UpdateVisibility();
+        
         if (bShouldHideNextRun == true)
         {
 
         }
+
+        this.gameObject.GetComponent<MeshRenderer>().enabled = false;
+
+
+
     }
 
     /// <summary>
@@ -48,6 +55,7 @@ public class Trap : MonoBehaviour, IDataPersistence
     /// </summary>
     public void Trigger()
     {
+        this.gameObject.GetComponent<MeshRenderer>().enabled = true;
         if (TrapType == TrapTypes.Spike)
         {
             if (gameObject.GetComponent<Spike>() == null)

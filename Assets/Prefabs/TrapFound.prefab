@@ -748,7 +748,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 1
+      value: 4.96
       mode: 0
       spread: 0
       speed:
@@ -4840,7 +4840,7 @@ GameObject:
   m_Component:
   - component: {fileID: 988194202679738660}
   - component: {fileID: 197851088563209136}
-  - component: {fileID: 2468136060782646120}
+  - component: {fileID: 7361943087824329177}
   m_Layer: 0
   m_Name: TrapFound
   m_TagString: Untagged
@@ -4876,8 +4876,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8daa5e59adeea6c45b59f26baccc427b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!65 &2468136060782646120
-BoxCollider:
+--- !u!135 &7361943087824329177
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -4887,5 +4887,5 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 5, y: 5, z: 5}
+  m_Radius: 7
   m_Center: {x: 0, y: 0, z: 0}

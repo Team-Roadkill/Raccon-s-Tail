@@ -42,11 +42,11 @@ public class Collectable : MonoBehaviour, IDataPersistence
 
     public void SaveData(ref GameData gdData)
     {
-         if (gdData.sbCollectablesFound.ContainsKey(sID)) //if already has save data for collectable id
-         {
-             gdData.sbCollectablesFound.Remove(sID); //remove id from save
-         }
-         gdData.sbCollectablesFound.Add(sID, bHasBeenCollected); //add new entry for collectable to save data
+         //if (gdData.sbCollectablesFound.ContainsKey(sID)) //if already has save data for collectable id
+         //{
+         //    gdData.sbCollectablesFound.Remove(sID); //remove id from save
+         //}
+         //gdData.sbCollectablesFound.Add(sID, bHasBeenCollected); //add new entry for collectable to save data
     }
 
     /// <summary>

@@ -8,7 +8,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class ExitLevel : MonoBehaviour
+public class ExitLevel : MonoBehaviour, IDataPersistence
 {
     DataPersistenceManager dpmDataPersistanceManager; //dpm ref 
 
@@ -16,6 +16,9 @@ public class ExitLevel : MonoBehaviour
     [SerializeField] GameObject goInGameUI;
     [SerializeField] GameObject goSuccessfulClearUI;
     [SerializeField] GameObject goFailedClearUI;
+
+    private int iDaysCleared;
+
 
     private void Start()
     {
@@ -47,6 +50,8 @@ public class ExitLevel : MonoBehaviour
 
         Time.timeScale = 0;
         Cursor.lockState = CursorLockMode.None;
+
+
     }
 
     /// <summary>
@@ -54,14 +59,14 @@ public class ExitLevel : MonoBehaviour
     /// </summary>
     public void ContinueSucessButton()
     {
-        //dpmDataPersistanceManager = GameObject.FindGameObjectWithTag("DataPersistanceManager").GetComponent<DataPersistenceManager>(); //get dpm
+        dpmDataPersistanceManager = GameObject.FindGameObjectWithTag("DataPersistanceManager").GetComponent<DataPersistenceManager>(); //get dpm
         //dpmDataPersistanceManager.SaveGame(); //save progress
-        //SceneLoader.Load(SceneLoader.Scene.DenScene); //load den
+        SceneLoader.Load(SceneLoader.Scene.DenScene); //load den
 
 
-        Time.timeScale = 1;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        
+        //Time.timeScale = 1;
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
     }
 
     /// <summary>
@@ -77,4 +82,15 @@ public class ExitLevel : MonoBehaviour
     }
 
 
+
+
+    public void LoadData(GameData gdData)
+    {
+        iDaysCleared = gdData.iDaysPassed + 1;
+    }
+
+    public void SaveData(ref GameData gdData)
+    {
+        gdData.iDaysPassed = iDaysCleared;
+    }
 }
