@@ -81,6 +81,7 @@
     <Compile Include="Assets\Scripts\ScriptableObjects\Scripts\GameObjectVariable.cs" />
     <Compile Include="Assets\Scripts\InGame\Traps\TrapTypes\WallPortals\WallPortal.cs" />
     <Compile Include="Assets\Scripts\DataPersistence\SerializableTypes\SerializableDictionary.cs" />
+    <Compile Include="Assets\Scripts\InGame\ExitLevelSafe.cs" />
     <Compile Include="Assets\Scripts\Player\Movement\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\SceneLoading\SceneLoader.cs" />
     <Compile Include="Assets\Scripts\DenScripts\DenManager.cs" />
@@ -113,7 +114,8 @@
     <Compile Include="Assets\Scripts\PumpkinDest.cs" />
     <Compile Include="Assets\Scripts\Player\Collision\InGameCollision.cs" />
     <Compile Include="Assets\Scripts\Player\Collision\DenCollision.cs" />
-    <Compile Include="Assets\Scripts\InGame\ExitLevelSafe.cs" />
+    <Compile Include="Assets\TrapTracking.cs" />
+    <Compile Include="Assets\TrapTrackingManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

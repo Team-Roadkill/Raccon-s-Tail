@@ -48,6 +48,11 @@ public class ExitLevel : MonoBehaviour, IDataPersistence
         goInGameUI.SetActive(false); //hide all other ui    
         goFailedClearUI.SetActive(true); //show failed ui
 
+        //wait to puase
+        //disable player controller
+        //apply launch force to player / rag doll
+
+
         Time.timeScale = 0;
         Cursor.lockState = CursorLockMode.None;
 
@@ -59,7 +64,7 @@ public class ExitLevel : MonoBehaviour, IDataPersistence
     /// </summary>
     public void ContinueSucessButton()
     {
-        dpmDataPersistanceManager = GameObject.FindGameObjectWithTag("DataPersistanceManager").GetComponent<DataPersistenceManager>(); //get dpm
+        //dpmDataPersistanceManager = GameObject.FindGameObjectWithTag("DataPersistanceManager").GetComponent<DataPersistenceManager>(); //get dpm
         //dpmDataPersistanceManager.SaveGame(); //save progress
         SceneLoader.Load(SceneLoader.Scene.DenScene); //load den
 
@@ -74,11 +79,11 @@ public class ExitLevel : MonoBehaviour, IDataPersistence
     /// </summary>
     public void ContinueFailButton()
     {
-        //SceneLoader.Load(SceneLoader.Scene.DenScene); //load den
+        SceneLoader.Load(SceneLoader.Scene.DenScene); //load den
 
 
-        Time.timeScale = 1;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        //Time.timeScale = 1;
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
 

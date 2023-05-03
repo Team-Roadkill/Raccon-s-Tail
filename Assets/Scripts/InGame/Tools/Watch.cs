@@ -53,7 +53,6 @@ public class Watch : MonoBehaviour
                 {
                     //GameObject goTrapLight = Instantiate(trapInArea, c.gameObject.transform.position, transform.rotation);
                     //Destroy(goTrapLight, fLingerDuration);
-
                     GameObject goWatchLight = Instantiate(goWatchGlow, gameObject.transform.position, transform.rotation, gameObject.transform);
                     Destroy(goWatchLight, fLingerDuration);
 
