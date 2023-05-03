@@ -66,10 +66,10 @@ public class ExitLevel : MonoBehaviour, IDataPersistence
     {
         //dpmDataPersistanceManager = GameObject.FindGameObjectWithTag("DataPersistanceManager").GetComponent<DataPersistenceManager>(); //get dpm
         //dpmDataPersistanceManager.SaveGame(); //save progress
+        Time.timeScale = 1;
         SceneLoader.Load(SceneLoader.Scene.DenScene); //load den
 
 
-        //Time.timeScale = 1;
         //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 
     }
@@ -79,10 +79,11 @@ public class ExitLevel : MonoBehaviour, IDataPersistence
     /// </summary>
     public void ContinueFailButton()
     {
+        Time.timeScale = 1;
         SceneLoader.Load(SceneLoader.Scene.DenScene); //load den
 
 
-        //Time.timeScale = 1;
+        
         //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
