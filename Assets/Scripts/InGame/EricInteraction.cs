@@ -76,10 +76,11 @@ public class EricInteraction : MonoBehaviour
                         ToolManagerRef.UnlockWatch(); //unlock the watch
                         QuestDisplayManagerRef.RemoveQuest(iHammerHandinQuestID); //remove the quest 
                     }
-                    else if (iTimerDuration <= 0)
+                    else// if (iTimerDuration <= 0)
                     {
                         iTimerDuration = fTimerLength; //set timer duration to timer length
                         UpDateTextDisplay(); //update dialog display
+                        iTimerDuration = fTimerLength;
                     }
                 }
             }

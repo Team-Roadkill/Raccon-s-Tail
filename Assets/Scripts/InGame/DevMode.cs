@@ -13,7 +13,7 @@ using UnityEngine.SceneManagement;
 /// </summary>
 public static class DevSettings
 {
-    public static bool devModeEnabled = false;
+    public static bool devModeEnabled = true;
 }
 
 public class DevMode : MonoBehaviour
