@@ -11,27 +11,49 @@ using UnityEngine.UI;
 public class LevelTimer : MonoBehaviour
 {
 
+    ExitLevel ExitLevelRef;
+
+
+    [SerializeField]
+    Light lLightSunRising;
+
     public float iElapsedTime; //time elapsed since initialized
     [SerializeField]
     Text tTime; //reference to time display ingame
-    float fMinutes; //total minutes
-    float fSeconds; //total seconds
 
     // Start is called before the first frame update
     void Start()
     {
-        iElapsedTime = 0; //set total elapsed time to 0
+        iElapsedTime = 20; //set timer to start at 5mins
+        ExitLevelRef = FindAnyObjectByType<ExitLevel>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        iElapsedTime += Time.deltaTime; //increase time
+        iElapsedTime -= Time.deltaTime; //increase time
 
         int fMinutes = Mathf.FloorToInt(iElapsedTime / 60F); //get number of minutes
         int fSeconds = Mathf.FloorToInt(iElapsedTime - fMinutes * 60); //get number of seconds
         
         tTime.text = string.Format("{00:00}:{01:00}", fMinutes, fSeconds); //update text display with time formatted to 00:00
+        if (lLightSunRising.isActiveAndEnabled)
+        {
+            //lLightSunRising.intensity = 300 / iElapsedTime;
+
+            float fDecrease = 20 - iElapsedTime;
+            float fPercentDecrease = (fDecrease / 20);
+
+            lLightSunRising.intensity = (1 *(fPercentDecrease / 3));
+        }
+
+
+
+        if (iElapsedTime <= 0)
+        {
+            ExitLevelRef.Death();
+            Debug.Log("Death triggered from time running out, handle seperately");
+        }
     }
 
 }
