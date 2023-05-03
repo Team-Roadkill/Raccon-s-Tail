@@ -69,7 +69,6 @@ public class ExitLevel : MonoBehaviour, IDataPersistence
         Time.timeScale = 1;
         SceneLoader.Load(SceneLoader.Scene.DenScene); //load den
 
-
         //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 
     }

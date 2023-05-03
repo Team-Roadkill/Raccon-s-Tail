@@ -53,11 +53,12 @@ public class EricInteraction : MonoBehaviour
         if (iTimerDuration > 0)
         {
             iTimerDuration -= Time.deltaTime;
+            tDisplayText.transform.parent.gameObject.SetActive(true);
             tDisplayText.SetActive(true);
         }
         else
         {
-            tDisplayText.SetActive(false);
+            tDisplayText.transform.parent.gameObject.SetActive(false);
         }
     }
 
@@ -75,10 +76,11 @@ public class EricInteraction : MonoBehaviour
                         ToolManagerRef.UnlockWatch(); //unlock the watch
                         QuestDisplayManagerRef.RemoveQuest(iHammerHandinQuestID); //remove the quest 
                     }
-                    else if (iTimerDuration <= 0)
+                    else// if (iTimerDuration <= 0)
                     {
                         iTimerDuration = fTimerLength; //set timer duration to timer length
                         UpDateTextDisplay(); //update dialog display
+                        iTimerDuration = fTimerLength;
                     }
                 }
             }
