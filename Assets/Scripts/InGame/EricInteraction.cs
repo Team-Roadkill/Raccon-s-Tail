@@ -53,11 +53,12 @@ public class EricInteraction : MonoBehaviour
         if (iTimerDuration > 0)
         {
             iTimerDuration -= Time.deltaTime;
+            tDisplayText.transform.parent.gameObject.SetActive(true);
             tDisplayText.SetActive(true);
         }
         else
         {
-            tDisplayText.SetActive(false);
+            tDisplayText.transform.parent.gameObject.SetActive(false);
         }
     }
 
