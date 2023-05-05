@@ -38,8 +38,8 @@ public class Statue : MonoBehaviour
         v3DetectionBarScale = goDetectionBar.transform.localScale;
 
         //set up light values
-        spotLight.intensity = 50;
-        spotLight.range = fVisionDistance;
+        spotLight.intensity = 1000;
+        spotLight.range = fVisionDistance + 15;
         spotLight.spotAngle = fVisionConeAngle;
     }
 

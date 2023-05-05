@@ -24,7 +24,7 @@ public class LevelTimer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        iElapsedTime = 20; //set timer to start at 5mins
+        iElapsedTime = 300; //set timer to start at 5mins
         ExitLevelRef = FindAnyObjectByType<ExitLevel>();
     }
 
@@ -41,8 +41,8 @@ public class LevelTimer : MonoBehaviour
         {
             //lLightSunRising.intensity = 300 / iElapsedTime;
 
-            float fDecrease = 20 - iElapsedTime;
-            float fPercentDecrease = (fDecrease / 20);
+            float fDecrease = 300 - iElapsedTime;
+            float fPercentDecrease = (fDecrease / 300);
 
             lLightSunRising.intensity = (1 *(fPercentDecrease / 3));
         }

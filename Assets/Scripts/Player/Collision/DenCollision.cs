@@ -25,7 +25,7 @@ public class DenCollision : MonoBehaviour
         if (a_cColliderInfo.name == "Tunnel")
         {
             //SceneLoader.Load(SceneLoader.Scene.Testing_Chris);
-            SceneLoader.Load(SceneLoader.Scene.HouseScene);
+            SceneLoader.Load(SceneLoader.Scene.GardenPath);
         }
 
     }

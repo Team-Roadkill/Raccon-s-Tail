@@ -20,7 +20,9 @@ public static class SceneLoader
         LoadingScene,
         HouseScene,
         DenScene,
-        Testing_Chris
+        Testing_Chris,
+        GardenPath
+
     }
 
     private static Action aOnLoaderCallback;
