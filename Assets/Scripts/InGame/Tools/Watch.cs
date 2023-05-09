@@ -23,8 +23,15 @@ public class Watch : MonoBehaviour
 
     private void Start()
     {
-        goTimeDisplay.SetActive(true);
-        goDayCountDisplay.SetActive(true);
+        if (goTimeDisplay)
+        {
+            goTimeDisplay.SetActive(true);
+        }
+        if (goDayCountDisplay)
+        {
+            goDayCountDisplay.SetActive(true);
+        }
+        
     }
 
     // Update is called once per frame
