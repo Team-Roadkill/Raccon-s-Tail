@@ -121,7 +121,7 @@ public class Trap : MonoBehaviour, IDataPersistence
     {
         if (a_cColliderInfo.gameObject.tag == "Player")
         {
-            gameObject.SetActive(true);
+            //gameObject.SetActive(true);
             Trigger();
         }
     }
