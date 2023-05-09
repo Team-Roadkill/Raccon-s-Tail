@@ -23,8 +23,6 @@ public class ToolManager : MonoBehaviour, IDataPersistence
         goHatObject.SetActive(false);
     }
 
-
-
     public void UnlockWatch()
     {
         goWatchObject.SetActive(true);
