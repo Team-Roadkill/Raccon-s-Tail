@@ -13,7 +13,7 @@ public class QuestDisplayManager : MonoBehaviour, IDataPersistence
     //blank quest obj
     [SerializeField] GameObject goQuestCell; //individual quest obj prefab
     [SerializeField] GameObject goQuestContainer; //container for quests
-    Dictionary<int, string> li_isQuests = new Dictionary<int, string>(); //list of active quests
+    public Dictionary<int, string> li_isQuests = new Dictionary<int, string>(); //list of active quests
 
 
     private void Start()

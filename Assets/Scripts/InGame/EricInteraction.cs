@@ -10,32 +10,36 @@ using UnityEngine.UI;
 /// <summary>
 /// should call dialog script which would manage displaying text on screen
 /// </summary>
-public class EricInteraction : MonoBehaviour
+public class EricInteraction : MonoBehaviour, IDataPersistence
 {
+
+    //quest options
     [Header("Dialog options")]
-    [SerializeField] List<string> a_sAllDialog; //list of dialog text pop ups
+    public int iQuestID; //id of the quest this script gives
+    public int iHandinQuestID; //id of the quest that needs to be cleared
+    [Space(5)]
+    [SerializeField] string sQuestGivingDialog; //interact dialog
+    [SerializeField] string sTurninDialog; //interact dialog when handing in
+    [SerializeField] string sReminderDialog; //reminder of what to do if first quest is active
+    [SerializeField] string sQuestObjective; //objective that is displayed in quest tab
+    [SerializeField] string sDefaultDialog; //no quests - default 
+
+    [Space(5)]
+
+
+    //obj ref
+    GameObject tDisplayText; //the object that displays the text
+
+
+    //timer
     [SerializeField] float fTimerLength = 5f; //time dialog is active
-    public int iHammerQuestID = 1; //quest id
-    public int iHammerHandinQuestID = 2; //quest id
-
-    public bool itemObtained = false; //if quest item has been obtained
-
-    GameObject tDisplayText; //dialog text field
-    int iCurrentDisplayedDialogID = 0; //id of current displayed text
     float iTimerDuration = 0; //duration of text display
     
     //script references
     ToolManager ToolManagerRef;
     QuestDisplayManager QuestDisplayManagerRef;
 
-
-    //should have
-    //dialog pop up/s
-    //quest id 1
-    //quest promt 1
-    //quest id 2
-    //quest promt 2
-
+    bool bFirstInteractDone = false;
 
 
     // Start is called before the first frame update
@@ -68,20 +72,9 @@ public class EricInteraction : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.E)) //if e pressed
             {
-                if (tDisplayText.gameObject.activeSelf == false) //if no current dialog displayed
+                if (iTimerDuration <= 0)
                 {
-                    if (itemObtained == true) //check quest item temp
-                    {
-                        tDisplayText.GetComponent<Text>().text = "Thanks for finding my hammer! Heres your reward 'Watch' it will help you in finding danger - fin";
-                        ToolManagerRef.UnlockWatch(); //unlock the watch
-                        QuestDisplayManagerRef.RemoveQuest(iHammerHandinQuestID); //remove the quest 
-                    }
-                    else// if (iTimerDuration <= 0)
-                    {
-                        iTimerDuration = fTimerLength; //set timer duration to timer length
-                        UpDateTextDisplay(); //update dialog display
-                        iTimerDuration = fTimerLength;
-                    }
+                    UpDateTextDisplay();
                 }
             }
         }
@@ -92,31 +85,55 @@ public class EricInteraction : MonoBehaviour
     /// </summary>
     private void UpDateTextDisplay()
     {
-        if (iCurrentDisplayedDialogID == (a_sAllDialog.Count - 1))
+        tDisplayText.GetComponent<Text>().text = "?";
+        if (QuestDisplayManagerRef.li_isQuests.ContainsKey(iQuestID)) //if this scripts quest is active
         {
-            QuestDisplayManagerRef.AddNewQuest(iHammerQuestID, "Find eric's hammer");
-        }
+            tDisplayText.GetComponent<Text>().text = "Look around for a way into the basement";
 
-        if (a_sAllDialog.Count != iCurrentDisplayedDialogID)
+            //quest reminder
+
+        }
+        else
         {
-            tDisplayText.GetComponent<Text>().text = a_sAllDialog[iCurrentDisplayedDialogID]; //update displayed text
-            if (a_sAllDialog.Count >= iCurrentDisplayedDialogID) //check if a string exists after the currently used one
+            if (QuestDisplayManagerRef.li_isQuests.ContainsKey(iHandinQuestID))
             {
-                iCurrentDisplayedDialogID = iCurrentDisplayedDialogID + 1;
+                tDisplayText.GetComponent<Text>().text = "Goodjob finding my hammer, heres wand";
+                QuestDisplayManagerRef.RemoveQuest(iHandinQuestID); //remove the quest
+                bFirstInteractDone = true; //avoid handing in completed before receiving first quest and getting first quest again
+                //quest completed
+
+                ToolManagerRef.UnlockWand(); //unlock the watch
+            }
+            else
+            {
+                if (bFirstInteractDone == false)
+                {
+                    tDisplayText.GetComponent<Text>().text = "look for wand, heres watch, goodluck";
+                    QuestDisplayManagerRef.AddNewQuest(iQuestID, "quest dialog frog");
+                    bFirstInteractDone = true;
+                    //giving quest
+
+                    ToolManagerRef.UnlockWatch(); //unlock the watch
+                }
+
             }
         }
-        else if (a_sAllDialog.Count <= iCurrentDisplayedDialogID) //check if current dialog to display has been exceeded
-        {
-            iCurrentDisplayedDialogID = 0; //start dialog from begining
-        }
+
+        iTimerDuration = fTimerLength; //set timer length
     }
 
-    public void HammerFound()
+
+    public void LoadData(GameData gdData)
     {
-        itemObtained = true;
-        QuestDisplayManagerRef.RemoveQuest(iHammerQuestID);
-        QuestDisplayManagerRef.AddNewQuest(iHammerHandinQuestID, "Return erics hammer");
-
+        bFirstInteractDone = gdData.iEricQuest;
     }
+
+
+    public void SaveData(ref GameData gdData)
+    {
+         gdData.iEricQuest = bFirstInteractDone;
+    }
+
+
 
 }

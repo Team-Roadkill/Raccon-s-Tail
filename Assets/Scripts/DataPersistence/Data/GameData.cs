@@ -17,7 +17,7 @@ public class GameData
     public SerializableDictionary<int, string> isActiveQuests; //tools unlocked // Tool, unlocked
     public bool bHammerFound;
     public string[] tools;
-
+    public bool iEricQuest; //tools unlocked // Tool, unlocked
 
     /// <summary>
     /// constructor for the default values that the game will start with
@@ -31,6 +31,7 @@ public class GameData
         isActiveQuests = new SerializableDictionary<int, string>();
         tools = new string[3];
         bHammerFound = false;
+        iEricQuest = false;
     }
 
 }

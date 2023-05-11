@@ -88,6 +88,16 @@ public class ExitLevel : MonoBehaviour, IDataPersistence
 
 
 
+    /// <summary>
+    /// continue button for the failed run ui
+    /// </summary>
+    public void ContinueFailButtonReload()
+    {
+        Time.timeScale = 1;
+        SceneLoader.Load(SceneLoader.Scene.HouseScene); //load den
+    }
+
+
 
     public void LoadData(GameData gdData)
     {
