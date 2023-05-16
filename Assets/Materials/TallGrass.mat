@@ -107,11 +107,11 @@ Material:
     - _BendDelta: 0.15
     - _BladeBendCurve: 4
     - _BladeBendDistance: 0.39
-    - _BladeHeightMax: 1.25
-    - _BladeHeightMin: 0.75
-    - _BladeSegments: 3
-    - _BladeWidthMax: 0.05
-    - _BladeWidthMin: 0.02
+    - _BladeHeightMax: 2
+    - _BladeHeightMin: 0.49
+    - _BladeSegments: 4.33
+    - _BladeWidthMax: 0.1
+    - _BladeWidthMin: 0.0311
     - _Blend: 0
     - _BumpScale: 1
     - _ClearCoatMask: 0
@@ -146,6 +146,6 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
-    - _TipColor: {r: 0.54089534, g: 0.8018868, b: 0.5471138, a: 1}
+    - _TipColor: {r: 0.29402816, g: 1, b: 0, a: 1}
     - _WindVelocity: {r: 0.2, g: 0, b: 0.15, a: 0}
   m_BuildTextureStacks: []
