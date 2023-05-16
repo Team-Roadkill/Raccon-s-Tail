@@ -44,7 +44,7 @@ public class LevelTimer : MonoBehaviour
             float fDecrease = 300 - iElapsedTime;
             float fPercentDecrease = (fDecrease / 300);
 
-            lLightSunRising.intensity = (1 *(fPercentDecrease / 3));
+            lLightSunRising.intensity = (1 *(fPercentDecrease / 2));
         }
 
 
