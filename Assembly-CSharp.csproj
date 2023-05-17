@@ -116,6 +116,8 @@
     <Compile Include="Assets\Scripts\PumpkinDest.cs" />
     <Compile Include="Assets\Scripts\Player\Collision\InGameCollision.cs" />
     <Compile Include="Assets\Scripts\Player\Collision\DenCollision.cs" />
+    <Compile Include="Assets\Scripts\LoadingTextDot.cs" />
+    <Compile Include="Assets\ItemShowcaseRotate.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Shaders\Grass\Grass Licence.txt" />

@@ -55,6 +55,7 @@ public class WallPortal : MonoBehaviour
         Quaternion deviation = Quaternion.AngleAxis(fAngle, v3Axis); //create new rotation around the axis using the angle
 
         Quaternion qNewDirection = deviation * qLaunchDirection; //get new direction with deviation
+        //Quaternion qNewDirection = gameObject.transform.rotation; //used for item showcase scene
 
         GameObject goPortalObject = Instantiate(goProjectilePrefabs[Random.Range(0, goProjectilePrefabs.Length - 1)],
             goObjectLaunchFrom.transform.position, qNewDirection); //create new projectile

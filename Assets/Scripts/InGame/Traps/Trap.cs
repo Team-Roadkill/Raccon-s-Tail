@@ -37,8 +37,12 @@ public class Trap : MonoBehaviour, IDataPersistence
 
     public void Start()
     {
-        //UpdateVisibility();
+
         
+
+
+        //UpdateVisibility();
+
         if (bShouldHideNextRun == true)
         {
 
@@ -46,7 +50,7 @@ public class Trap : MonoBehaviour, IDataPersistence
 
         this.gameObject.GetComponent<MeshRenderer>().enabled = false;
 
-
+        //Trigger(); // used for the item showcase scene
 
     }
 
