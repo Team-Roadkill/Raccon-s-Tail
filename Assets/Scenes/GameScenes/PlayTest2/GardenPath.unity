@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.20267504, g: 0.24687552, b: 0.352648, a: 1}
+  m_IndirectSpecularColor: {r: 0.20267439, g: 0.24687916, b: 0.35265458, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -716,6 +716,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bHammerFound: 0
+  iQuestID: 0
+  iHandinQuestID: 0
+  sQuestDialog: 
 --- !u!65 &37837647
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2281,7 +2284,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-1325614
+  m_Name: pb_Mesh-88046
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -5183,13 +5186,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0441f4cc3856da841be4774f262aace4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  a_sAllDialog:
-  - I've lost my hammer if you enter the witches house could you find it for me?
-    I'll make sure to reward you
+  iQuestID: 0
+  iHandinQuestID: 0
+  sQuestGivingDialog: 
+  sTurninDialog: 
+  sReminderDialog: 
+  sQuestObjective: 
+  sDefaultDialog: 
   fTimerLength: 10
-  iHammerQuestID: 1
-  iHammerHandinQuestID: 2
-  itemObtained: 0
 --- !u!54 &261805505
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -18572,7 +18576,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh1131292
+  m_Name: pb_Mesh97004
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -31424,17 +31428,17 @@ RectTransform:
   m_GameObject: {fileID: 589240958}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1.5022, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 869493856}
   m_Father: {fileID: 1969128172}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.0005493164, y: -2.7751236}
-  m_SizeDelta: {x: -0.7319946, y: -31.766937}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 0.0005493164, y: 80.224884}
+  m_SizeDelta: {x: 885.268, y: 134.23306}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &589240960
 MonoBehaviour:
@@ -31456,7 +31460,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 39ed6e0e4830a6e48b16b1b6dfaa5e2c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 85806b42b66aa3a4d8e52cef7b6e4ee1, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -31633,7 +31637,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-1325600
+  m_Name: pb_Mesh-88032
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -38257,7 +38261,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-1325586
+  m_Name: pb_Mesh-88018
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -42189,7 +42193,7 @@ RectTransform:
   m_GameObject: {fileID: 869493855}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.96642, y: 0.82681, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 589240959}
@@ -43173,7 +43177,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh1129786
+  m_Name: pb_Mesh95502
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -49176,8 +49180,8 @@ GameObject:
   m_Component:
   - component: {fileID: 994888786}
   - component: {fileID: 994888789}
-  - component: {fileID: 994888788}
   - component: {fileID: 994888787}
+  - component: {fileID: 994888790}
   m_Layer: 5
   m_Name: Quests Interface
   m_TagString: Untagged
@@ -49202,10 +49206,10 @@ RectTransform:
   m_Father: {fileID: 1415190708}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.27800003}
-  m_AnchorMax: {x: 0.19743751, y: 0.81500006}
-  m_AnchoredPosition: {x: -7.5473633, y: 0.00012207031}
-  m_SizeDelta: {x: -15.085, y: 0.00024414}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 178.45264, y: -553.9999}
+  m_SizeDelta: {x: 356.915, y: 656.00024}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &994888787
 MonoBehaviour:
@@ -49221,7 +49225,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   goQuestCell: {fileID: 2602845836370374579, guid: 3f970123d7937b04281515be5d25927b, type: 3}
   goQuestContainer: {fileID: 1807847065}
---- !u!114 &994888788
+--- !u!222 &994888789
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 994888785}
+  m_CullTransparentMesh: 1
+--- !u!114 &994888790
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -49241,7 +49253,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 7902854432024204ca06ec8344fc06d1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: af744cfc139800c4d81689264bc2b226, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -49251,14 +49263,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!222 &994888789
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 994888785}
-  m_CullTransparentMesh: 1
 --- !u!1 &996731701 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3135528255806182682, guid: df8457f68c00e89429a818402ed7db19, type: 3}
@@ -55492,7 +55496,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh1131354
+  m_Name: pb_Mesh97066
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -56301,7 +56305,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh1131240
+  m_Name: pb_Mesh96952
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -73411,7 +73415,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh1128768
+  m_Name: pb_Mesh94484
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -74518,7 +74522,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh1129080
+  m_Name: pb_Mesh94796
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -78305,7 +78309,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1730678659}
-  m_LocalRotation: {x: 0.06381401, y: 0.108881995, z: -0.0070043793, w: 0.9919796}
+  m_LocalRotation: {x: 0.06381401, y: 0.108881995, z: -0.0070043756, w: 0.9919796}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.2226602, y: 1.2226605, z: 1.2226604}
   m_ConstrainProportionsScale: 0
@@ -79460,7 +79464,7 @@ RectTransform:
   m_GameObject: {fileID: 1807847065}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.85086, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1868205249}
@@ -79468,7 +79472,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.00061035156, y: 0.00048828125}
+  m_AnchoredPosition: {x: -0.00061035156, y: -0.000061035156}
   m_SizeDelta: {x: -8.7664795, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1807847067
@@ -87071,7 +87075,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.2872843, y: 0}
   m_AnchorMax: {x: 0.7557297, y: 0.15940134}
-  m_AnchoredPosition: {x: -1.333252, y: 3}
+  m_AnchoredPosition: {x: -1.333252, y: 27}
   m_SizeDelta: {x: 3.8002014, y: -1.1019135}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1969128173
@@ -87094,7 +87098,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 39ed6e0e4830a6e48b16b1b6dfaa5e2c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3e5d864a057060c4b93d65be65b8248e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -87533,6 +87537,8 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'Quests
 
+    sdwas
+
 '
 --- !u!222 &2013201105
 CanvasRenderer:
@@ -87842,7 +87848,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh1132016
+  m_Name: pb_Mesh97716
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -94045,7 +94051,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.781, y: 0}
   m_AnchorMax: {x: 1, y: 0.33544588}
-  m_AnchoredPosition: {x: 0.9025879, y: -0.5510254}
+  m_AnchoredPosition: {x: 0.9025879, y: -0.55126953}
   m_SizeDelta: {x: -1.8050003, y: -1.101892}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2069866698
