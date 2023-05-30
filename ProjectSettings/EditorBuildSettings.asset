@@ -18,7 +18,7 @@ EditorBuildSettings:
     path: Assets/Scenes/GameScenes/LoadingScene.unity
     guid: c17b19591b5fdb74bb6318ce758cb68c
   - enabled: 0
-    path: Assets/Scenes/Testing/Testing_Chris.unity
+    path: Assets/Scenes/Testing/4LeggedTestArea/Testing_Chris.unity
     guid: 56faa4d950c72914a903788275e298ca
   - enabled: 0
     path: Assets/Scenes/GameScenes/PlayTest2/GardenPath.unity
