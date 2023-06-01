@@ -48,7 +48,10 @@ public class EricInteraction : MonoBehaviour, IDataPersistence
         ToolManagerRef = FindAnyObjectByType<ToolManager>();
         QuestDisplayManagerRef = FindAnyObjectByType<QuestDisplayManager>();
         tDisplayText = GameObject.FindGameObjectWithTag("DialogField");
-        tDisplayText.SetActive(false);
+        if (tDisplayText != null)
+        {
+            tDisplayText.SetActive(false);
+        }
     }
 
     // Update is called once per frame
@@ -58,11 +61,17 @@ public class EricInteraction : MonoBehaviour, IDataPersistence
         {
             iTimerDuration -= Time.deltaTime;
             tDisplayText.transform.parent.gameObject.SetActive(true);
-            tDisplayText.SetActive(true);
+            if (tDisplayText != null)
+            {
+                tDisplayText.SetActive(true);
+            }
         }
         else
         {
-            tDisplayText.transform.parent.gameObject.SetActive(false);
+            if (tDisplayText != null)
+            {
+                tDisplayText.transform.parent.gameObject.SetActive(false);
+            }
         }
     }
 
