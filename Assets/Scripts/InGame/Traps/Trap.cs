@@ -35,6 +35,9 @@ public class Trap : MonoBehaviour, IDataPersistence
     bool bIsShown = false;
     bool bShouldHideNextRun = false;
 
+    [SerializeField] AudioSource trapSound;
+
+
     public void Start()
     {
 
@@ -127,6 +130,7 @@ public class Trap : MonoBehaviour, IDataPersistence
         {
             //gameObject.SetActive(true);
             Trigger();
+            trapSound.Play();
         }
     }
 

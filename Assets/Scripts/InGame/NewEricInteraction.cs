@@ -8,8 +8,6 @@ public class NewEricInteraction : MonoBehaviour
     [SerializeField] GameObject goDialog;
     [SerializeField] Text TextArea;
 
-    [SerializeField] float fTimerDuration;
-    float fTimer;
     bool bIsTimerActive;
 
     [SerializeField] string sDialog;
@@ -24,10 +22,16 @@ public class NewEricInteraction : MonoBehaviour
 
     IEnumerator dialogdisplay()
     {
+        if (bIsTimerActive == true)
+        {
+            yield break;
+        }
+        bIsTimerActive = true;
         goDialog.SetActive(true);
         TextArea.text = sDialog;
         yield return new WaitForSeconds(3);
         goDialog.SetActive(false);
+        bIsTimerActive = false;
     }
 
 
