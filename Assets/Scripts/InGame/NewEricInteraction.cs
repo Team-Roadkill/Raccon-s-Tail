@@ -29,7 +29,7 @@ public class NewEricInteraction : MonoBehaviour
         bIsTimerActive = true;
         goDialog.SetActive(true);
         TextArea.text = sDialog;
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(5);
         goDialog.SetActive(false);
         bIsTimerActive = false;
     }

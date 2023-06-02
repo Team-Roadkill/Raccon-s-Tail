@@ -22,7 +22,7 @@ public class DialogOnEnterArea : MonoBehaviour
     {
         goDialogBox.SetActive(true);
         tDialogText.text = newDialog;
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(5);
         goDialogBox.SetActive(false);
     }
 

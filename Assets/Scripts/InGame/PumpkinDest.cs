@@ -10,7 +10,7 @@ using UnityEngine;
 public class PumpkinDest : MonoBehaviour
 {
     [SerializeField] Transform lockPos;
-
+    [SerializeField] Collider colliderToEnable;
     private void OnTriggerEnter(Collider other)
     {
         if (other.transform.tag == "Dest")
@@ -38,7 +38,7 @@ public class PumpkinDest : MonoBehaviour
         if (bAttachedToPlayer == true)
         {
             //transform.Rotate(0, 1, 0);
-            transform.position = goPlayerRef.gameObject.transform.position + new Vector3(0, 2, 0);
+            transform.position = goPlayerRef.gameObject.transform.position + new Vector3(0, 8, 0);
         }
     }
 
