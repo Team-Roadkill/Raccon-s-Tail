@@ -31,11 +31,11 @@ public class ExitLevel : MonoBehaviour, IDataPersistence
     /// </summary>
     public void SuccessfulClear()
     {
-        goInGameUI.SetActive(false); //hide all other ui
         goSuccessfulClearUI.SetActive(true); //show success ui  
 
         Time.timeScale = 0;
         Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
 
     }
 
@@ -45,32 +45,22 @@ public class ExitLevel : MonoBehaviour, IDataPersistence
     /// </summary>
     public void Death()
     {
-        goInGameUI.SetActive(false); //hide all other ui    
         goFailedClearUI.SetActive(true); //show failed ui
-
-        //wait to puase
-        //disable player controller
-        //apply launch force to player / rag doll
-
-
         Time.timeScale = 0;
         Cursor.lockState = CursorLockMode.None;
-
-
+        Cursor.visible = true;
     }
+
+
+    //buttons
+
 
     /// <summary>
     /// continue button for the successful run ui
     /// </summary>
     public void ContinueSucessButton()
     {
-        //dpmDataPersistanceManager = GameObject.FindGameObjectWithTag("DataPersistanceManager").GetComponent<DataPersistenceManager>(); //get dpm
-        //dpmDataPersistanceManager.SaveGame(); //save progress
-        Time.timeScale = 1;
-        SceneLoader.Load(SceneLoader.Scene.DenScene); //load den
-
-        //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-
+        Application.Quit();
     }
 
     /// <summary>
@@ -79,24 +69,8 @@ public class ExitLevel : MonoBehaviour, IDataPersistence
     public void ContinueFailButton()
     {
         Time.timeScale = 1;
-        SceneLoader.Load(SceneLoader.Scene.DenScene); //load den
-
-
-        
-        //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-    }
-
-
-
-    /// <summary>
-    /// continue button for the failed run ui
-    /// </summary>
-    public void ContinueFailButtonReload()
-    {
-        Time.timeScale = 1;
         SceneLoader.Load(SceneLoader.Scene.HouseScene); //load den
     }
-
 
 
     public void LoadData(GameData gdData)

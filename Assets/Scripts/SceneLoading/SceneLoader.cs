@@ -69,17 +69,17 @@ public static class SceneLoader
     /// <returns></returns>
     public static float GetLoadingProgress()
     {
-        return aAsyncOperation.progress;
+        //return aAsyncOperation.progress;
 
 
-        //if (aAsyncOperation != null)
-        //{
-        //    return aAsyncOperation.progress; //return the loading progress
-        //}
-        //else
-        //{
-        //    return 1f; //else return 1
-        //}
+        if (aAsyncOperation != null)
+        {
+            return aAsyncOperation.progress; //return the loading progress
+        }
+        else
+        {
+            return 1f; //else return 1
+        }
     }
 
 

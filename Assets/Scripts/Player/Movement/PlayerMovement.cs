@@ -26,8 +26,8 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
-Cursor.visible = false;
-Cursor.lockState = CursorLockMode.Confined;
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Confined;
         cmVirtualCamera = FindObjectOfType<CinemachineVirtualCamera>(); //cinemachine camera
         PlayerAnimationRef = gameObject.GetComponent<PlayerAnimation>(); //get player animation script
 

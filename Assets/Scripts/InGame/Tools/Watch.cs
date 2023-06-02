@@ -14,8 +14,8 @@ public class Watch : MonoBehaviour
     [SerializeField] GameObject trapInArea; //effect for a nearby trap
     [SerializeField] float fTimeBetweenChecks = 1f; //time between updates
 
-    [SerializeField] GameObject goTimeDisplay;
-    [SerializeField] GameObject goDayCountDisplay;
+    //[SerializeField] GameObject goTimeDisplay;
+    //[SerializeField] GameObject goDayCountDisplay;
 
     [SerializeField] GameObject goWatchGlow;
 
@@ -23,30 +23,20 @@ public class Watch : MonoBehaviour
 
     private void Start()
     {
-        if (goTimeDisplay)
-        {
-            goTimeDisplay.SetActive(true);
-        }
-        if (goDayCountDisplay)
-        {
-            goDayCountDisplay.SetActive(true);
-        }
+        //if (goTimeDisplay)
+        //{
+        //    goTimeDisplay.SetActive(true);
+        //}
+        //if (goDayCountDisplay)
+        //{
+        //    goDayCountDisplay.SetActive(true);
+        //}
         
     }
 
     // Update is called once per frame
     void Update()
     {
-        //if (Input.GetKeyDown(KeyCode.Alpha1))
-        //{
-        //    goTimeDisplay.SetActive(true);
-        //}
-        //else if (Input.GetKeyUp(KeyCode.Alpha1))
-        //{
-        //    goTimeDisplay.SetActive(false);
-        //}
-
-
         if (fTimeCount > 0)
         {
             fTimeCount -= Time.deltaTime;
@@ -58,16 +48,8 @@ public class Watch : MonoBehaviour
             {
                 if (c.gameObject.tag == "Trap")
                 {
-                    //GameObject goTrapLight = Instantiate(trapInArea, c.gameObject.transform.position, transform.rotation);
-                    //Destroy(goTrapLight, fLingerDuration);
                     GameObject goWatchLight = Instantiate(goWatchGlow, gameObject.transform.position, transform.rotation, gameObject.transform);
                     Destroy(goWatchLight, fLingerDuration);
-
-
-
-                    //check dist to obj
-                    //set glow
-
 
                 }
             }
